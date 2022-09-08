@@ -1,87 +1,88 @@
 \chapter{Análisis}
 
 \noindent
-Una vez que se ha identificado el problema, se formulará una primera aproximación a la 
-solución por medio de los requerimientos funcionales que debe cumplir, así como por las 
-restricciones que debe satisfacer. También se mostrarán trabajos relacionados.
+Una vez que se ha identificado el problema, se formulará una primera aproximación a la
+solución por medio de los requerimientos funcionales que debe cumplir, así como por las
+restricciones
+que debe satisfacer. También se mostrarán trabajos relacionados.
 
 \newpage
 
 \section{Requerimientos funcionales}
 
-El sistema generará una jugada a partir del estado actual del juego. Es decir, el progama 
-recibirá como entrada una representación de sus fichas asignadas así como de las fichas 
-tiradas por los otros participantes y como salida indicará cual de sus fichas debe jugarse. 
+El sistema generará una jugada a partir del estado actual del juego. Es decir, el progama
+recibirá como entrada una representación de sus fichas asignadas así como de las fichas
+tiradas por los otros participantes y como salida indicará cual de sus fichas debe jugarse.
 También será posible elegir distintos niveles de juego para el programa
 
 \section{Requerimientos no funcionales}
 
-El programa debe generar las jugadas en un tiempo razonable. Debe siempre terminar la 
-ejecución antes de un lapso predeterminado para poder utilizarse en un juego de tiempo real 
-contra contrincantes humanos y no debe poseer información sobre las manos de sus 
+El programa debe generar las jugadas en un tiempo razonable. Debe siempre terminar la
+ejecución antes de un lapso predeterminado para poder utilizarse en un juego de tiempo real
+contra contrincantes humanos y no debe poseer información sobre las manos de sus
 contrincantes ni de su pareja de equipo.
 
-En segundo lugar, el desempeño del programa tiene que ser mejor que la estrategia más 
+En segundo lugar, el desempeño del programa tiene que ser mejor que la estrategia más
 sencilla posible (el jugador greedy): de entre las fichas que se tiene en la mano, siempre
-bajar la de mayor puntaje. Una jugada greedy es sumamente barata de calcular. De no 
-cumplirse con este requisito no tendría sentido utilizar una estrategía más compleja y 
-costosa en tiempo y recursos computacionales. 
+bajar la de mayor puntaje. Una jugada greedy es sumamente barata de calcular. De no
+cumplirse con este requisito no tendría sentido utilizar una estrategía más compleja y
+costosa en tiempo y recursos computacionales.
 
-Así, se pone como meta que un equipo de jugadores artificiales debe vencer a un equipo 
-de jugadores greedy en al menos 70\% de las partidas. Se considera que este margen es el 
+Así, se pone como meta que un equipo de jugadores artificiales debe vencer a un equipo
+de jugadores greedy en al menos 70\% de las partidas. Se considera que este margen es el
 minimo para justificar el uso de un algoritmo distinto a la estrategía greedy.
 
-Por último, debe exponer una API sencilla para ser integrado a distintas interfaces, tanto 
+Por último, debe exponer una API sencilla para ser integrado a distintas interfaces, tanto
 aplicaciones web como móviles.
 
 \section{Restricciones}
 
-El software a desarrollar cuenta con dos restricciones principales. En primer lugar, en 
-cuanto a los recursos para implementar la solucion, se cuenta con un periodo aproximado 
-de 6 meses para completar el desarrollo del sistema así como de un solo desarrollador (el 
-autor de este trabajo). 
+El software a desarrollar cuenta con dos restricciones principales. En primer lugar, en
+cuanto a los recursos para implementar la solucion, se cuenta con un periodo aproximado
+de 6 meses para completar el desarrollo del sistema así como de un solo desarrollador (el
+autor de este trabajo).
 
-En segundo lugar, el sistema debe cumplir con los requerimientos funcionales y no 
-funcionales dentro de un ambiente de ejecución en la nube con un costo razonable. Es 
-dificil estimar el costo de los recursos computacionales que consumirá la solución, pues 
-depende de la cantidad de usuarios del sistema así como de su comportamiento de uso. No 
-se cuenta con los datos necesarios para estimar la naturaleza de la carga a la que el sistema 
-debe hacer frente pero se puede definir unas caracteristicas mínimas del ambiente de 
+En segundo lugar, el sistema debe cumplir con los requerimientos funcionales y no
+funcionales dentro de un ambiente de ejecución en la nube con un costo razonable. Es
+dificil estimar el costo de los recursos computacionales que consumirá la solución, pues
+depende de la cantidad de usuarios del sistema así como de su comportamiento de uso. No
+se cuenta con los datos necesarios para estimar la naturaleza de la carga a la que el sistema
+debe hacer frente pero se puede definir unas caracteristicas mínimas del ambiente de
 ejecución en el cual la solución debe correr.
 
-Como un punto de referencia, se ha elegido la instancia más modesta de la categoría de 
-servidores de proposito general de Digital Ocean. Dicho servidor cuenta con ocho 
-gigabytes de memoria RAM y con dos procesadores virtuales. La máquina virtual corre 
-sobre procesadores Intel Xeon Skylake con una velocidad base de 2.7 ghz y con máxima 
-velocidad de 3.7 ghz. El costo del servidor es de sesenta dólares al mes. Se eligió Digital 
+Como un punto de referencia, se ha elegido la instancia más modesta de la categoría de
+servidores de proposito general de Digital Ocean. Dicho servidor cuenta con ocho
+gigabytes de memoria RAM y con dos procesadores virtuales. La máquina virtual corre
+sobre procesadores Intel Xeon Skylake con una velocidad base de 2.7 ghz y con máxima
+velocidad de 3.7 ghz. El costo del servidor es de sesenta dólares al mes. Se eligió Digital
 Ocean por los creditos que regala para probar los servidores.
 
-Si el sistema no puede correr en un servidor de esta naturaleza, es muy probable que en una 
+Si el sistema no puede correr en un servidor de esta naturaleza, es muy probable que en una
 escala más grande el costo de la solución sea prohibitivo para su uso.
 
 \section{Trabajos relacionados}
 
-Uno de los trabajos importante en el ambito de algoritmos  para juegos de información imperfecta 
-lo realiza Ginsberg  (2001).  Con esta metodología logra implementar un jugador de Bridge 
-de nivel experto. 
+Uno de los trabajos importante en el ambito de algoritmos  para juegos de información imperfecta
+lo realiza Ginsberg  (2001).  Con esta metodología logra implementar un jugador de Bridge
+de nivel experto.
 
-Por otra parte, un jugador artificial en un contexto de incertidumbre puede estudiarse desde 
-la perspectiva de procesos de decisión de markov como en la disciplina de aprendizaje por 
-refuerzo. En este campo es importante el trabajo de Mnih et al. (2013) que es uno de los 
-primeros en integrar aprendizaje profundo a los algoritmos de aprendizaje por refuerzo para 
+Por otra parte, un jugador artificial en un contexto de incertidumbre puede estudiarse desde
+la perspectiva de procesos de decisión de markov como en la disciplina de aprendizaje por
+refuerzo. En este campo es importante el trabajo de Mnih et al. (2013) que es uno de los
+primeros en integrar aprendizaje profundo a los algoritmos de aprendizaje por refuerzo para
 la creación de agentes en el juego de atari.
 
-Long et al. (2010) realizaron un trabajo en donde , a partir de árboles de juego sintéticos, 
-definen indicadores estadísticos que les permiten identificar propiedades importantes de 
-juegos de información imperfecta en los que el método de Perfect Information Monte Carlo 
-(PIMC)  se puede adaptar exitosamente. Dicho trabajo extiende la línea de investigación 
-sobre las limitaciones de PIMC en el contexto de información imperfecta que inician Frank 
+Long et al. (2010) realizaron un trabajo en donde , a partir de árboles de juego sintéticos,
+definen indicadores estadísticos que les permiten identificar propiedades importantes de
+juegos de información imperfecta en los que el método de Perfect Information Monte Carlo
+(PIMC)  se puede adaptar exitosamente. Dicho trabajo extiende la línea de investigación
+sobre las limitaciones de PIMC en el contexto de información imperfecta que inician Frank
 y Basin (1998)
 
-Asimismo, se recuperó de la web un proyecto de licenciatura sobre un jugador artificial 
-para dominó (en el texto se le refiere como Latin-American dominoes) desarrollado por 
-Angeris y Li (2016) de la universidad de Stanford. El proyecto consiste en simulaciones 
-para contrastar distintas algoritmos pero no tiene la finalidad de ser consumido como una 
+Asimismo, se recuperó de la web un proyecto de licenciatura sobre un jugador artificial
+para dominó (en el texto se le refiere como Latin-American dominoes) desarrollado por
+Angeris y Li (2016) de la universidad de Stanford. El proyecto consiste en simulaciones
+para contrastar distintas algoritmos pero no tiene la finalidad de ser consumido como una
 API.
 % La siguiente gráfica está hecha a mano porque la que arroja R se pixelea un poco al importarla a LaTeX. Pueden apoyarse en Excel para obtener las coordenadas más rápido
 
@@ -101,14 +102,14 @@ API.
 %     width=0.6\textwidth,
 %     height=0.4\textwidth,
 % ]
- 
+
 % \addplot[
 %     color=red,
 %     ]
 %     coordinates {
 %     (1,0)(1000,0)(1500,0)(1600,1)(1700,1)(1820,1)(1870,2)(1900,3)(1913,5)(1940,8)(1950,9)(1951,10)(1952,10)(1953,11)(1954,11)(1955,12)(1956,12)(1957,13)(1958,13)(1959,14)(1960,15)(1961,15)(1962,16)(1963,17)(1964,18)(1965,19)(1966,20)(1967,20)(1968,22)(1969,23)(1970,24)(1971,25)(1972,26)(1973,28)(1974,28)(1975,29)(1976,30)(1977,31)(1978,33)(1979,34)(1980,35)(1981,35)(1982,36)(1983,37)(1984,38)(1985,40)(1986,41)(1987,43)(1988,45)(1989,46)(1990,47)(1991,48)(1992,48)(1993,49)(1994,51)(1995,53)(1996,55)(1997,57)(1998,58)(1999,60)(2000,63)(2001,65)(2002,66)(2003,69)(2004,73)(2005,76)(2006,80)(2007,85)(2008,87)(2009,87)(2010,91)(2011,95)(2012,98)(2013,101)(2014,105)(2015,108)
 %     };
-    
+
 % \end{axis}
 % \end{tikzpicture}
 
