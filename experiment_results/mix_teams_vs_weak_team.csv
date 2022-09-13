@@ -1,3 +1,3 @@
-"experiment_id","team_1_p1","team_1_p3","team_2_p2","team_2_p4","total_plays","avg_team_1_num_plays","avg_team_2_num_plays","avg_team_1_num_pass","avg_team_2_num_pass","percent_not_hanged_games","avg_team_1_seconds_elapsed","avg_team_2_seconds_elapsed"
-151,pimc_0.01333_75,greedy,greedy,greedy,2532,12.74,12.58,1.87,2.81,70.0,0.35257337512550774,0.0000191369761723
-152,pimc_0.01333_75,mcts_1,greedy,greedy,2566,13.0,12.66,1.61,2.74,74.0,0.8506462577673105,0.0000229550387245
+experiment_id,team_1_p1,team_1_p3,team_2_p2,team_2_p4,total_plays,avg_team_1_num_plays,avg_team_2_num_plays,avg_team_1_num_pass,avg_team_2_num_pass,percent_win_team_1,percent_win_team_2,percent_draws,percent_win_not_hanged_team_1,percent_win_not_hanged_team_2,avg_team_1_seconds_elapsed,avg_team_2_seconds_elapsed
+151,pimc_0.01333_75,greedy,greedy,greedy,2532,12.74,12.58,1.87,2.81,72.0,25.0,3.0,59.0,11.0,0.352573375125508,1.91369761723214e-05
+152,pimc_0.01333_75,mcts_1,greedy,greedy,2566,13.0,12.66,1.61,2.74,88.0,12.0,0.0,67.0,7.0,0.850646257767311,2.29550387245407e-05
