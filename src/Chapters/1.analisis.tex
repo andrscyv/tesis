@@ -40,10 +40,10 @@ interfaces, tanto aplicaciones web como móviles.
 
 \section{Restricciones}
 
-El software a desarrollar cuenta con dos restricciones principales. En primer
-lugar, en cuanto a los recursos para implementar la solución, se cuenta con un
-periodo aproximado de 6 meses para completar el desarrollo del sistema así como
-de un solo desarrollador (el autor de este trabajo).
+El software a desarrollar cuenta con distintas restricciones que debe cumplir.
+En primer lugar, en cuanto a los recursos para implementar la solución, se
+cuenta con un periodo aproximado de 6 meses para completar el desarrollo del
+sistema así como de un solo desarrollador (el autor de este trabajo).
 
 En segundo lugar, el sistema debe cumplir con los requerimientos funcionales y
 no funcionales dentro de un ambiente de ejecución en la nube con un costo
@@ -55,16 +55,41 @@ puede definir unas características mínimas del ambiente de ejecución en el cu
 la solución debe correr.
 
 Como un punto de referencia, se ha elegido la instancia más modesta de la
-categoría de servidores de propósito general de Digital Ocean. Dicho servidor
-cuenta con ocho gigabytes de memoria RAM y con dos procesadores virtuales. La
-máquina virtual corre sobre procesadores Intel Xeon Skylake con una velocidad
-base de 2.7 ghz y con máxima velocidad de 3.7 ghz. El costo del servidor es de
-sesenta dólares al mes. Se eligió Digital Ocean por los créditos que regala para
-probar los servidores.
+categoría de servidores de cpu compartido de Digital Ocean. Dicho servidor es
+una máquina virtual que cuenta con un gigabyte de memoria RAM y un procesador
+virtual. Como se describe en la documentación de Digital Ocean, el procesador
+virtual es aproximadamente equivalente a un hiperhilo del servidor físico sobre
+el que corre. Dependiendo de la carga que experimenten las máquinas virtuales
+que corren en el servidor físico, el hiperhilo puede ser compartido con otros
+usuarios. En casos en que la máquina virtual tenga una carga alta de trabajo
+puede obtener más de un hiperhilo si el servidor físico cuenta con la capacidad
+suficiente. El hardware que provee Digital Ocean para el plan básico es una
+combinación de procesadores de primera generación (o menos recientes)
+\textit{Xeon Scalable} y procesadores \textit{AMD EPYC}
 
-Si el sistema no puede correr en un servidor de esta naturaleza, es muy probable
-que en una escala más grande el costo de la solución sea prohibitivo para su
-uso.
+Se considera que un servicio web basado en nuestro sistema, corriendo en el
+servidor antes descrito, deberá tener suficiente capacidad para atender las
+solicitudes de al menos unos cientos de usuarios al mes. De otra forma, es muy
+probable que el costo de la solución sea prohibitivo para su uso.
+
+Por otra parte, debido a que Ubuntu es de licencia libre y que su uso es muy
+común en el ecosistema de aplicativos web, se decidió que será la plataforma
+principal en la que debe ejecutarse nuestro sistema. Por las mismas razones, se
+decidió que el sistema debe estar implementado en el lenguaje \textit{Python 3}.
+
+El uso de bibliotecas de terceros para realizar la implementación puede ser
+deseable para ahorrar tiempo de desarrollo. Pero en caso de utilizarse, las
+bibliotecas deben satisfacer dos criterios. Primero, deben ser de código
+abierto, para que puedan ser modificadas en caso de ser necesario. En segundo
+lugar, deben contar con una licencia que permita su uso comercial.
+
+Por último, se destaca que el propósito de este trabajo es obtener un software
+apto para su uso en producción y que sea susceptible de modificaciones y mejoras
+por distintos desarrolladores, aun cuando esto signifique un rendimiento menor
+al que se pueda obtener con técnicas de vanguardia. Así, es deseable utilizar un
+algoritmo de ''caja blanca'', buscando que sea más accesible su entendimiento
+para las distintas personas encargadas de su mantenimiento y mejora.
+
 
 \section{Trabajos relacionados}
 
