@@ -14,9 +14,9 @@ algoritmos que pueden utilizarse en este tipo de juegos.
 
 En primer lugar, existen algoritmos de aprendizaje por refuerzo que han sido
 utilizados exitosamente en juegos con incertidumbre e información escondida. El
-algoritmo de Counterfactual Regret Minimization ha sido utilizado para crear
-jugadores de póker. Dicho algoritmo utiliza un enfoque iterativo en el que se
-busca aproximar una función que para cada estado del juego defina una acción
+algoritmo de \textit{Counterfactual Regret Minimization} ha sido utilizado para
+crear jugadores de póker. Dicho algoritmo utiliza un enfoque iterativo en el que
+se busca aproximar una función que para cada estado del juego defina una acción
 óptima.
 
 Por otro lado, existe el algoritmo Perfect Information Monte Carlo (PIMC). En
@@ -40,7 +40,7 @@ El programa consta de los siguientes módulos:
 
 \begin{enumerate}
    \item Análisis del tablero y jugadas predefinidas
-   \item Muestreo de fichas desconocidas (Determinization)
+   \item Muestreo de fichas desconocidas (\textit{Determinization})
    \item Búsqueda en árbol de juego con información perfecta
 \end{enumerate}
 
@@ -76,7 +76,7 @@ juego se calcularán las fichas que aun no han sido tiradas y el número de fich
 que tiene cada jugador. Este resultado se pasará al siguiente módulo.
 
 En esta primera versión del sistema sólo implementaremos el caso en que existe
-una unica jugada posible. Dejamos como linea de investigación para futuras
+una única jugada posible. Dejamos como linea de investigación para futuras
 versiones el incluir conocimiento experto para elegir la primer jugada.
 
 \section{Muestreo de fichas desconocidas}

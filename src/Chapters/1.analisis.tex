@@ -11,7 +11,7 @@ mostrarán trabajos relacionados.
 \section{Requerimientos funcionales}
 
 El sistema generará una jugada a partir del estado actual del juego. Es decir,
-el progama recibirá como entrada una representación de sus fichas asignadas así
+el programa recibirá como entrada una representación de sus fichas asignadas así
 como de las fichas tiradas por los otros participantes y como salida indicará
 cual de sus fichas debe jugarse. También será posible elegir distintos niveles
 de juego para el programa
@@ -27,13 +27,13 @@ En segundo lugar, el desempeño del programa tiene que ser mejor que la
 estrategia más sencilla posible (el jugador greedy): de entre las fichas que se
 tiene en la mano, siempre bajar la de mayor puntaje. Una jugada greedy es
 sumamente barata de calcular. De no cumplirse con este requisito no tendría
-sentido utilizar una estrategía más compleja y costosa en tiempo y recursos
+sentido utilizar una estrategia más compleja y costosa en tiempo y recursos
 computacionales.
 
 Así, se pone como meta que un equipo de jugadores artificiales debe vencer a un
 equipo de jugadores greedy en al menos 70\% de las partidas. Se considera que
-este margen es el minimo para justificar el uso de un algoritmo distinto a la
-estrategía greedy.
+este margen es el mínimo para justificar el uso de un algoritmo distinto a la
+estrategia greedy.
 
 Por último, debe exponer una API sencilla para ser integrado a distintas
 interfaces, tanto aplicaciones web como móviles.
@@ -41,25 +41,25 @@ interfaces, tanto aplicaciones web como móviles.
 \section{Restricciones}
 
 El software a desarrollar cuenta con dos restricciones principales. En primer
-lugar, en cuanto a los recursos para implementar la solucion, se cuenta con un
+lugar, en cuanto a los recursos para implementar la solución, se cuenta con un
 periodo aproximado de 6 meses para completar el desarrollo del sistema así como
 de un solo desarrollador (el autor de este trabajo).
 
 En segundo lugar, el sistema debe cumplir con los requerimientos funcionales y
 no funcionales dentro de un ambiente de ejecución en la nube con un costo
-razonable. Es dificil estimar el costo de los recursos computacionales que
+razonable. Es difícil estimar el costo de los recursos computacionales que
 consumirá la solución, pues depende de la cantidad de usuarios del sistema así
 como de su comportamiento de uso. No se cuenta con los datos necesarios para
 estimar la naturaleza de la carga a la que el sistema debe hacer frente pero se
-puede definir unas caracteristicas mínimas del ambiente de ejecución en el cual
+puede definir unas características mínimas del ambiente de ejecución en el cual
 la solución debe correr.
 
 Como un punto de referencia, se ha elegido la instancia más modesta de la
-categoría de servidores de proposito general de Digital Ocean. Dicho servidor
+categoría de servidores de propósito general de Digital Ocean. Dicho servidor
 cuenta con ocho gigabytes de memoria RAM y con dos procesadores virtuales. La
 máquina virtual corre sobre procesadores Intel Xeon Skylake con una velocidad
 base de 2.7 ghz y con máxima velocidad de 3.7 ghz. El costo del servidor es de
-sesenta dólares al mes. Se eligió Digital Ocean por los creditos que regala para
+sesenta dólares al mes. Se eligió Digital Ocean por los créditos que regala para
 probar los servidores.
 
 Si el sistema no puede correr en un servidor de esta naturaleza, es muy probable
@@ -68,29 +68,30 @@ uso.
 
 \section{Trabajos relacionados}
 
-Uno de los trabajos importante en el ambito de algoritmos  para juegos de
+Uno de los trabajos importante en el ámbito de algoritmos  para juegos de
 información imperfecta lo realiza Ginsberg  (2001).  Con esta metodología logra
 implementar un jugador de Bridge de nivel experto.
 
 Por otra parte, un jugador artificial en un contexto de incertidumbre puede
-estudiarse desde la perspectiva de procesos de decisión de markov como en la
+estudiarse desde la perspectiva de procesos de decisión de Márkov como en la
 disciplina de aprendizaje por refuerzo. En este campo es importante el trabajo
 de Mnih et al. (2013) que es uno de los primeros en integrar aprendizaje
 profundo a los algoritmos de aprendizaje por refuerzo para la creación de
-agentes en el juego de atari.
+agentes en el juego de Atari.
 
 Long et al. (2010) realizaron un trabajo en donde , a partir de árboles de juego
 sintéticos, definen indicadores estadísticos que les permiten identificar
 propiedades importantes de juegos de información imperfecta en los que el método
-de Perfect Information Monte Carlo (PIMC)  se puede adaptar exitosamente. Dicho
-trabajo extiende la línea de investigación sobre las limitaciones de PIMC en el
-contexto de información imperfecta que inician Frank y Basin (1998)
+de \textit{Perfect Information Monte Carlo} (PIMC)  se puede adaptar
+exitosamente. Dicho trabajo extiende la línea de investigación sobre las
+limitaciones de PIMC en el contexto de información imperfecta que inician Frank
+y Basin (1998)
 
 Asimismo, se recuperó de la web un proyecto de licenciatura sobre un jugador
-artificial para dominó (en el texto se le refiere como Latin-American dominoes)
-desarrollado por Angeris y Li (2016) de la universidad de Stanford. El proyecto
-consiste en simulaciones para contrastar distintas algoritmos pero no tiene la
-finalidad de ser consumido como una API.
+artificial para dominó (en el texto se le refiere como \textit{Latin-American
+dominoes}) desarrollado por Angeris y Li (2016) de la universidad de Stanford.
+El proyecto consiste en simulaciones para contrastar distintas algoritmos pero
+no tiene la finalidad de ser consumido como una API.
 % La siguiente gráfica está hecha a mano porque la que arroja R se pixelea un poco al importarla a LaTeX. Pueden apoyarse en Excel para obtener las coordenadas más rápido
 
 % \begin{figure}[H]

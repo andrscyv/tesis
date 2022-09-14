@@ -1,3 +1,35 @@
 {
-  "editor.defaultFormatter": "James-Yu.latex-workshop"
+  "editor.defaultFormatter": "James-Yu.latex-workshop",
+  "cSpell.language": "es-ES",
+  "cSpell.words": [
+    "Angeris",
+    "Atari",
+    "Basin",
+    "Blue",
+    "Carlo",
+    "Deep",
+    "Frank",
+    "Garry",
+    "gigabytes",
+    "Ginsberg",
+    "Github",
+    "greedy",
+    "heurística",
+    "Kasparov",
+    "Márkov",
+    "MCTS",
+    "mctspy",
+    "Mnih",
+    "monetización",
+    "multijugador",
+    "Perfect",
+    "PIMC",
+    "póker",
+    "pseudocódigo",
+    "puntaje",
+    "Skylake",
+    "Stanford",
+    "suplementen",
+    "Xeon"
+  ]
 }
