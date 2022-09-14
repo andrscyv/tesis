@@ -3,62 +3,68 @@
 
 % La introducción no cuenta como primer capítulo
 
-\noindent 
+\noindent
 
-En el primer capítulo se presentará el problema que se aborda en este trabajo. Se dará el 
-contexto histórico de la relación entre los videojuegos y los jugadores artificiales para luego 
-identificar el problema y definir tanto los objetivos como la metodología a seguir.
+En el primer capítulo se presentará el problema que se aborda en este trabajo.
+Se dará el contexto histórico de la relación entre los videojuegos y los
+jugadores artificiales para luego identificar el problema y definir tanto los
+objetivos como la metodología a seguir.
 
 \section{Contexto}
 
-La historia de los juegos por computadora inicia desde la década de 1950 en el ámbito 
-académico y en los años setenta y ochenta gana popularidad para el público en general. Los 
-videojuegos han tenido un gran impacto en la cultura popular, así como en grandes figuras 
-de la computación que tuvieron su primer acercamiento a los ordenadores por medio de 
-estos y del lenguaje BASIC
+La historia de los juegos por computadora inicia desde la década de 1950 en el
+ámbito académico y en los años setenta y ochenta gana popularidad para el
+público en general. Los videojuegos han tenido un gran impacto en la cultura
+popular, así como en grandes figuras de la computación que tuvieron su primer
+acercamiento a los ordenadores por medio de estos y del lenguaje BASIC
 
-Asimismo, los juegos de mesa han tenido un papel importante en el desarrollo del área de 
-inteligencia artificial siendo una área muy fructífera de investigación como en el caso del 
-ajedrez y la famosa contienda entre Deep Blue y Garry Kasparov
+Asimismo, los juegos de mesa han tenido un papel importante en el desarrollo del
+área de inteligencia artificial siendo una área muy fructífera de investigación
+como en el caso del ajedrez y la famosa contienda entre Deep Blue y Garry
+Kasparov
 
 \subsection{Identificación del problema}
 
- El desarrollo de videojuegos es un ámbito multidisciplinario en donde se utilizan técnicas 
-de inteligencia artificial para complementar la experiencia de juego del usuario. Los 
-jugadores artificiales (o bots) cumplen un papel importante como contrincantes o 
-personajes secundarios dentro del juego. 
+El desarrollo de videojuegos es un ámbito multidisciplinario en donde se
+utilizan técnicas de inteligencia artificial para complementar la experiencia de
+juego del usuario. Los jugadores artificiales (o bots) cumplen un papel
+importante como contrincantes o personajes secundarios dentro del juego.
 
-Con miras a desarrollar una versión online del juego de dominó con un modelo de 
-monetización basado en anuncios, se tiene como uno de los objetivo maximizar el número 
-de impresiones de los anuncios en el usuario. Así, es necesario proveer una experiencia 
-atractiva que tenga como efecto que el usuario pase un largo tiempo activo en la página.
+Con miras a desarrollar una versión online del juego de dominó con un modelo de
+monetización basado en anuncios, se tiene como uno de los objetivo maximizar el
+número de impresiones de los anuncios en el usuario. Así, es necesario proveer
+una experiencia atractiva que tenga como efecto que el usuario pase un largo
+tiempo activo en la página.
 
-El lanzamiento a mercado de un juego multijugador online presenta distintos retos. Entre 
-ellos, existe la necesidad de crear una base mínima de usuarios que permita tener un tiempo 
-razonable de espera para poder encontrar una partida a la cual unirse. Una forma de 
-solventar parcialmente este obstáculo, particularmente en las primeras fases del 
-lanzamiento, es contar con jugadores artificiales que suplementen la falta de contrincantes 
-humanos.
+El lanzamiento a mercado de un juego multijugador online presenta distintos
+retos. Entre ellos, existe la necesidad de crear una base mínima de usuarios que
+permita tener un tiempo razonable de espera para poder encontrar una partida a
+la cual unirse. Una forma de solventar parcialmente este obstáculo,
+particularmente en las primeras fases del lanzamiento, es contar con jugadores
+artificiales que suplementen la falta de contrincantes humanos.
 
-Así, es deseable contar con un jugador artificial que permita a los usuarios iniciar una 
-partida aun en las circunstancias en que no cuenten con suficientes personas para completar 
-los equipos. Al momento en que se realiza este escrito, no se ha encontrado una 
-implementación de código abierto de un jugador artificial para el juego de dominó (con las 
-reglas que se usan en latinoamérica) que cuente tanto con una licencia que permita su uso 
-comercial así como una interfaz de programación diseñada para su integración a un juego 
-de tiempo real con usuarios humanos.
+Así, es deseable contar con un jugador artificial que permita a los usuarios
+iniciar una partida aun en las circunstancias en que no cuenten con suficientes
+personas para completar los equipos. Al momento en que se realiza este escrito,
+no se ha encontrado una implementación de código abierto de un jugador
+artificial para el juego de dominó (con las reglas que se usan en latinoamérica)
+que cuente tanto con una licencia que permita su uso comercial así como una
+interfaz de programación diseñada para su integración a un juego de tiempo real
+con usuarios humanos.
 
 
 
 \subsection{Objetivos}
 
-Implementar un programa de computadora que sea capaz de jugar en una partida de dominó 
-como parte de un equipo de dos participantes que compiten con dos contrincantes.
+Implementar un programa de computadora que sea capaz de jugar en una partida de
+dominó como parte de un equipo de dos participantes que compiten con dos
+contrincantes.
 
 \subsection{Metodología}
 
-Para la implementación del bot, se decidió utilizar la metodología de cascada debido a que 
-el alcance y la funcionalidad del proyecto es relativamente pequeña.
+Para la implementación del bot, se decidió utilizar la metodología de cascada
+debido a que el alcance y la funcionalidad del proyecto es relativamente
+pequeña.
 
 \subsection{Organización del documento}
 \begin{enumerate}

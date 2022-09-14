@@ -61,41 +61,41 @@
 \title{ JUGADOR ARTIFICIAL DE DOMINÓ BASADO EN MÉTODOS DE MONTE CARLO} % Con este nombre se guardará el proyecto en writeLaTex
 
 \begin{titlepage}
-\begin{center}
+      \begin{center}
 
-\textsc{\Large Instituto Tecnológico Autónomo de México}\\[2em]
+            \textsc{\Large Instituto Tecnológico Autónomo de México}\\[2em]
 
-%Figura
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.50]{itam_logo.png}
-\end{center}
-\end{figure}
+            %Figura
+            \begin{figure}[h]
+                  \begin{center}
+                        \includegraphics[scale=0.50]{itam_logo.png}
+                  \end{center}
+            \end{figure}
 
-% Pueden modificar el tamaño del logo cambiando la escala
+            % Pueden modificar el tamaño del logo cambiando la escala
 
-\textbf{\LARGE JUGADOR ARTIFICIAL DE DOMINÓ BASADO EN MÉTODOS DE MONTE CARLO}\\[2em]
+            \textbf{\LARGE JUGADOR ARTIFICIAL DE DOMINÓ BASADO EN MÉTODOS DE MONTE CARLO}\\[2em]
 
-\textsc{\large Tesis}\\[1em]
+            \textsc{\large Tesis}\\[1em]
 
-\textsc{\large que para obtener el título de}\\[1em]
+            \textsc{\large que para obtener el título de}\\[1em]
 
-\textsc{\LARGE Ingeniero en Computación}\\[1em]
+            \textsc{\LARGE Ingeniero en Computación}\\[1em]
 
-\textsc{\large Presenta}\\[1em]
+            \textsc{\large Presenta}\\[1em]
 
-\textsc{\LARGE Andrés Cruz y Vera}\\[1em]
+            \textsc{\LARGE Andrés Cruz y Vera}\\[1em]
 
-\textsc{\large Asesora}\\[1em]
+            \textsc{\large Asesora}\\[1em]
 
-\textsc{\LARGE Dr. Marco Antonio Morales Aguirre}\\[2em]
+            \textsc{\LARGE Dr. Marco Antonio Morales Aguirre}\\[2em]
 
-% Asegúrense de escribir el nombre completo de su asesor
+            % Asegúrense de escribir el nombre completo de su asesor
 
-\end{center}
+      \end{center}
 
-\vspace*{\fill}
-\textsc{Ciudad de México \hspace*{\fill} 2020}
+      \vspace*{\fill}
+      \textsc{Ciudad de México \hspace*{\fill} 2020}
 
 \end{titlepage}
 
@@ -113,14 +113,14 @@
 
 % Asegúrense de cambiar el título de su tesis en el párrafo anterior
 
-\centering 
+\centering
 
 \vspace{5em}
 
 \rule[1em]{20em}{0.5pt} % Línea para la fecha
 
 \textsc{Fecha}
- 
+
 \vspace{8em}
 
 \rule[1em]{20em}{0.5pt} % Línea para la firma
@@ -139,7 +139,7 @@
 
 \chapter*{}
 \begin{flushright}
-\textit{A mis padres,\\ por su incansable esfuerzo.}
+      \textit{A mis padres,\\ por su incansable esfuerzo.}
 \end{flushright}
 
 %----------------------------------------------------------------------------------------
@@ -237,9 +237,9 @@
 
 \makeatletter
 \renewenvironment{thebibliography}[1]
-     {\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+{\@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
       \list{}%
-           {\setlength{\labelwidth}{0pt}%
+      {\setlength{\labelwidth}{0pt}%
             \setlength{\labelsep}{0pt}%
             \setlength{\leftmargin}{\parindent}%
             \setlength{\itemindent}{-\parindent}%
@@ -250,85 +250,85 @@
       \@clubpenalty \clubpenalty
       \widowpenalty4000%
       \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
+{\def\@noitemerr
+      {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
 \makeatother
 
 \begin{thebibliography}{111}
 
-% Lista
+      % Lista
 
-% La manera recomendada para citar papers o libros en el formato de Chicago esta en el siguiente vínculo: https://www.chicagomanualofstyle.org/tools_citationguide/citation-guide-2.html
+      % La manera recomendada para citar papers o libros en el formato de Chicago esta en el siguiente vínculo: https://www.chicagomanualofstyle.org/tools_citationguide/citation-guide-2.html
 
-% Es importante poner el apellido del autor seguido del año de publicación, una coma y las páginas consultadas en el texto antes de puntuar y entre paréntesis para las citas en el cuerpo de la tesis
+      % Es importante poner el apellido del autor seguido del año de publicación, una coma y las páginas consultadas en el texto antes de puntuar y entre paréntesis para las citas en el cuerpo de la tesis
 
-% Ejemplo:
+      % Ejemplo:
 
-% Las \textit{causas próximas} del crecimiento son conocidas: tecnología, capital humano y físico. La pregunta es ¿por qué unos países sí tienen estas causas próximas y otros no? La respuesta son las \textit{causas fundamentales:} suerte, geografía, cultura e instituciones (Acemoglu 2009, 110).
+      % Las \textit{causas próximas} del crecimiento son conocidas: tecnología, capital humano y físico. La pregunta es ¿por qué unos países sí tienen estas causas próximas y otros no? La respuesta son las \textit{causas fundamentales:} suerte, geografía, cultura e instituciones (Acemoglu 2009, 110).
 
-%AAAAA
-% \bibitem{abram57} Abramovitz, Moses. 1957. «Resources on Output Trends in the United States since 1870.» \textit{The American Economic Review} 46 (2): 5–23.
-\bibitem{agneris16} Angeris, G., \& Li, L. (2016). CS 221 Project Final : DominAI. Recuperado de https://web.stanford.edu/~guillean/papers/dominai.pdf	
-\bibitem{basin98}Frank, I., and Basin, D. 1998. Search in games with in- complete information: A case study using bridge card play. Artificial Intelligence 87–123. 
-\bibitem{ginsberg01}Ginsberg, M. L. (2001). GIB: Imperfect Information in a Computationally Challenging Game. Journal of Artificial Intelligence Research, 14, 303-358. https://doi.org/10.1613/jair.820
+      %AAAAA
+      % \bibitem{abram57} Abramovitz, Moses. 1957. «Resources on Output Trends in the United States since 1870.» \textit{The American Economic Review} 46 (2): 5–23.
+      \bibitem{agneris16} Angeris, G., \& Li, L. (2016). CS 221 Project Final : DominAI. Recuperado de https://web.stanford.edu/~guillean/papers/dominai.pdf
+      \bibitem{basin98}Frank, I., and Basin, D. 1998. Search in games with in- complete information: A case study using bridge card play. Artificial Intelligence 87–123.
+      \bibitem{ginsberg01}Ginsberg, M. L. (2001). GIB: Imperfect Information in a Computationally Challenging Game. Journal of Artificial Intelligence Research, 14, 303-358. https://doi.org/10.1613/jair.820
 
-\bibitem{richard10}Long, Jeffrey Richard et al. “Understanding the Success of Perfect Information Monte Carlo Sampling in Game Tree Search.” AAAI (2010).
+      \bibitem{richard10}Long, Jeffrey Richard et al. “Understanding the Success of Perfect Information Monte Carlo Sampling in Game Tree Search.” AAAI (2010).
 
-\bibitem{mnih13}Mnih, V., Kavukcuoglu, K., Silver, D., Graves, A., Antonoglou, I., Wierstra, D. \& Riedmiller, M. (2013). Playing Atari with Deep Reinforcement Learning. , .
+      \bibitem{mnih13}Mnih, V., Kavukcuoglu, K., Silver, D., Graves, A., Antonoglou, I., Wierstra, D. \& Riedmiller, M. (2013). Playing Atari with Deep Reinforcement Learning. , .
 
 
-% \bibitem{acemoglu09} Acemoglu, Daron. 2009. \textit{Introduction to Modern Economic Growth.} Princeton: Princeton University Press.
+      % \bibitem{acemoglu09} Acemoglu, Daron. 2009. \textit{Introduction to Modern Economic Growth.} Princeton: Princeton University Press.
 
-%BBBBB
+      %BBBBB
 
-%CCCCC
+      %CCCCC
 
-%DDDDD
+      %DDDDD
 
-%EEEEE
+      %EEEEE
 
-%FFFFF
+      %FFFFF
 
-%GGGGG
+      %GGGGG
 
-%HHHHH
+      %HHHHH
 
-%IIIII
+      %IIIII
 
-%JJJJJ
+      %JJJJJ
 
-%KKKKK
+      %KKKKK
 
-%LLLLL
+      %LLLLL
 
-%MMMMM
+      %MMMMM
 
-%NNNNN
+      %NNNNN
 
-%OOOOO
+      %OOOOO
 
-%PPPPP
+      %PPPPP
 
-%QQQQQ
+      %QQQQQ
 
-%RRRRR
+      %RRRRR
 
-%SSSSS
+      %SSSSS
 
-%TTTTT
+      %TTTTT
 
-%UUUUU
+      %UUUUU
 
-%VVVVV
+      %VVVVV
 
-%WWWWW
+      %WWWWW
 
-%XXXXX
+      %XXXXX
 
-%YYYYY
+      %YYYYY
 
-%ZZZZZ
+      %ZZZZZ
 
 \end{thebibliography}
 

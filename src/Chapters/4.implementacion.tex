@@ -2,34 +2,37 @@
 
 \noindent
 
-En este capítulo se describe la implementación del sistema basada en el diseño previamente 
-establecido. Primero se discute la librería utilizada como implementación del algoritmo 
-MCTS : mctspy. Posteriormente, se muestra la clase que implementa las reglas del juego de 
-dominó y su integración a mctspy. Por último, se comenta la integración del módulo de 
-muestreo con el algoritmo MCTS
+En este capítulo se describe la implementación del sistema basada en el diseño
+previamente establecido. Primero se discute la librería utilizada como
+implementación del algoritmo MCTS : mctspy. Posteriormente, se muestra la clase
+que implementa las reglas del juego de dominó y su integración a mctspy. Por
+último, se comenta la integración del módulo de muestreo con el algoritmo MCTS
 
 \section{Implementación de MCTS}
 
-Una parte central del sistema es el algoritmo MCTS. Después de buscar librerías 
-alternativas en el Índice de Paquetes de Python (PyPI por sus siglas en inglés) se decidió 
-utilizar la librería mctspy de Kamil Czarnogórski. El paquete se encuentra publicado como 
-código abierto en Github bajo la licencia MIT. 
+Una parte central del sistema es el algoritmo MCTS. Después de buscar librerías
+alternativas en el Índice de Paquetes de Python (PyPI por sus siglas en inglés)
+se decidió utilizar la librería mctspy de Kamil Czarnogórski. El paquete se
+encuentra publicado como código abierto en Github bajo la licencia MIT.
 
-El repositorio cuenta con escaza documentación, pero el estilo de programación es claro y 
-sencillo, lo que facilita la lectura del código fuente. Para poder utilizar mctspy para un 
-juego en particular es necesario implementar una clase que represente el estado del juego, 
-así como los métodos que requiere el algoritmo. El repositorio cuenta con un ejemplo de 
-implementación para el juego de gato a partir del cual se puede identificar la interfaz que 
-debe satisfacer el estado del juego.
+El repositorio cuenta con escaza documentación, pero el estilo de programación
+es claro y sencillo, lo que facilita la lectura del código fuente. Para poder
+utilizar mctspy para un juego en particular es necesario implementar una clase
+que represente el estado del juego, así como los métodos que requiere el
+algoritmo. El repositorio cuenta con un ejemplo de implementación para el juego
+de gato a partir del cual se puede identificar la interfaz que debe satisfacer
+el estado del juego.
 
-Una vez que se ha implementado la interfaz se puede construir un objeto 
-MonteCarloTreeSearch con el cual se puede invocar la ejecución de MCTS. La clase 
-requiere un parámetro que determina el número de iteraciones de MCTS que se ejecutan.
+Una vez que se ha implementado la interfaz se puede construir un objeto
+MonteCarloTreeSearch con el cual se puede invocar la ejecución de MCTS. La clase
+requiere un parámetro que determina el número de iteraciones de MCTS que se
+ejecutan.
 
 \section{Implementación de la clase de juego}
 
-Las reglas del juego se implementaron dentro de la clase que representa el estado del juego. 
-La interfaz que dicha clase debe satisfacer consiste en los siguientes métodos:
+Las reglas del juego se implementaron dentro de la clase que representa el
+estado del juego. La interfaz que dicha clase debe satisfacer consiste en los
+siguientes métodos:
 
 \begin{itemize}
    \item game\_result
@@ -39,28 +42,30 @@ La interfaz que dicha clase debe satisfacer consiste en los siguientes métodos:
    \item get\_legal\_actions
 \end{itemize}
 
-Las manos de los jugadores se modelaron como una lista de conjuntos. Cada ficha es 
-representada como un conjunto de dos números que corresponden a los puntos de la pieza. 
-Así, la clase cuenta con los métodos necesarios para transformar el estado del juego de 
-forma consistente con las reglas del dominó.
+Las manos de los jugadores se modelaron como una lista de conjuntos. Cada ficha
+es representada como un conjunto de dos números que corresponden a los puntos de
+la pieza. Así, la clase cuenta con los métodos necesarios para transformar el
+estado del juego de forma consistente con las reglas del dominó.
 
 \section{Módulo de muestreo}
 
-Por último, se implementó un algoritmo de muestreo de las posibles formas de repartir las 
-fichas que no se conocen como se muestra pseudocódigo de la figura \ref{CM}. 
+Por último, se implementó un algoritmo de muestreo de las posibles formas de
+repartir las fichas que no se conocen como se muestra pseudocódigo de la figura
+\ref{CM}.
 
 \begin{figure}[ht]
-\begin{center}
-\hbox{\hspace{-1.5em} \includegraphics[scale=0.9]{codigo_muestreo.png}}
-\caption{Algoritmo de muestreo. Se generan un conjunto de escenarios consistentes con las fichas observadas}
-\label{CM}
-\end{center}
+   \begin{center}
+      \hbox{\hspace{-1.5em} \includegraphics[scale=0.9]{codigo_muestreo.png}}
+      \caption{Algoritmo de muestreo. Se generan un conjunto de escenarios consistentes con las fichas observadas}
+      \label{CM}
+   \end{center}
 \end{figure}
 
-En el algoritmo de la figura anterior se representa la mano de cada jugador como un 
-conjunto de fichas para poder explotar las operaciones de conjuntos del lenguaje Python. 
-Primero se calcula una muestra para la mano del primer jugador a la derecha. Luego se 
-calculan las manos de los jugadores posteriores con las fichas que aun no se han repartido.
+En el algoritmo de la figura anterior se representa la mano de cada jugador como
+un conjunto de fichas para poder explotar las operaciones de conjuntos del
+lenguaje Python. Primero se calcula una muestra para la mano del primer jugador
+a la derecha. Luego se calculan las manos de los jugadores posteriores con las
+fichas que aun no se han repartido.
 
 % \noindent El Grupo Huatusco se ha reunido por más de quince años intentando responder la pregunta de por qué México no crece a mayores tasas.
 
@@ -154,7 +159,7 @@ calculan las manos de los jugadores posteriores con las fichas que aun no se han
 % (2015,241.1)
 % (2016,241.8)
 %     };
-    
+
 %     \addplot[
 %     dashed,
 %     color=blue,
@@ -228,7 +233,7 @@ calculan las manos de los jugadores posteriores con las fichas que aun no se han
 % (2014,109.2)
 % (2015,112.8)
 % (2016,115.1)};
-    
+
 % \end{axis}
 % \end{tikzpicture}
 
