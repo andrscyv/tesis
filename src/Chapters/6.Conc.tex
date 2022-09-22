@@ -5,9 +5,29 @@
 
 \noindent
 Se logró implementar un sistema que satisface los requerimientos funcionales y
-no funcionales dentro de las restricciones establecidas. Se ha demostrado que el
-método presentado es una solución factible para un sistema de jugadores
-artificiales en una plataforma de dominó online. Lineas de desarrollo que
-podrían explorarse a futuro sería analizar el comportamiento del sistema con
-datos de usuarios humanos, así como el comportamiento de  PIMC cuando los
-equipos se conforman de jugador humano y jugador artificial.
+no funcionales dentro de las restricciones establecidas. Como se mostró en el
+capitulo anterior, el jugador PIMC es capaz de elegir una ficha a tirar a partir
+del estado del juego proporcionado como entrada al sistema. Con una elección de
+parámetros basada en búsqueda en cuadrícula, vence en más del 70 \% de las veces
+a un equipo \textit{greedy}, incluso cuando forma parte de un equipo mixto. La
+misma elección de parámetros asegura que el sistema toma aproximadamente un
+segundo en calcular su jugada.
+
+Se ha demostrado que el método presentado es una solución factible para un
+sistema de jugadores artificiales en una plataforma de dominó online. En la
+estimación de capacidad se vió que una instancia de un servicio web basado en el
+jugador PIMC sería capaz de atender desde cien hasta unos cuantos miles de usuarios
+al mes. Con el servidor de Digital Ocean que se utilizó para este trabajo (con
+costo mensual de 100 pesos mexicanos aproximadamente), el costo por usuario
+estaría por debajo de un peso al mes.
+
+Existen distintas lineas de desarrollo que podrían basarse en este trabajo. En
+primer lugar, se podría realizar la implementación del servicio web antes
+aludido. Para esto sería necesario crear un aplicativo web en python e importar
+el jugador PIMC como un paquete externo.
+
+Otra linea de investigación sería mejorar el rendimiento del jugador. La
+incorporación de reglas expertas en el primer módulo del sistema, la
+paralelización del algoritmo y el desarrollo de un mecanismo de inferencia para
+estimar la distribución de las fichas desconocidas son algunas de las
+oportunidades que podrían explorarse en futuros trabajos.

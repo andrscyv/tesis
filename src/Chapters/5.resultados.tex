@@ -8,9 +8,10 @@ validar que el sistema tuviera un funcionamiento correcto. Se validó que el
 con buen desempeño. En segundo lugar, se realizaron dos búsquedas en cuadrícula
 en el espacio de parámetros de PIMC. Así, fue posible identificar cómo varía el
 desempeño en función de los parámetros y elegir una combinación óptima de ellos.
-Por último, se muestra el desempeño del sistema con los parámetros seleccionados
-y se caracteriza con base en distintas estadísticas recolectadas de múltiples
-juegos simulados.
+Posteriormente, se muestra el desempeño del sistema con los parámetros
+seleccionados y se caracteriza con base en distintas estadísticas recolectadas
+de múltiples juegos simulados. Por último, se realiza una estimación de la
+capacidad que un servicio web basada en el sistema podría tener.
 
 \section{Validación de MCTS}
 
@@ -30,7 +31,7 @@ para los jugadores greedy es irrelevante conocer las fichas de sus
 contrincantes, ya que su jugada se calcula exclusivamente con la información de
 sus propias fichas.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
         \hbox{\hspace{-2em}
         \includegraphics[scale=0.65]{graficas_experimentos/mcts_is_correct.png}}
@@ -77,7 +78,7 @@ basándose en que un jugador humano experto tiene una gran habilidad para inferi
 las fichas de los demás participantes. Además, posee una gran compenetración con
 su compañero para poder cooperar armónicamente.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
         \hbox{\hspace{-2em}
         \includegraphics[scale=0.65]{graficas_experimentos/grid_search_vs_greedy.png}}
@@ -95,7 +96,7 @@ tiene mejor desempeño. También se observa que en el rango  \( n \in  [1000,
 10000]\) el porcentaje de victorias disminuye y tiene mayor variabilidad
 conforme cambia n.
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \begin{center}
         \hbox{\hspace{-2em}
         \includegraphics[scale=0.65]{graficas_experimentos/grid_search_vs_strong.png}}
@@ -160,6 +161,7 @@ equipos mixtos.
 
 \begin{table}[!ht]
     \centering
+    \small
     \caption{Estadísticas de 100 juegos. Equipo PIMC con jugador fuerte vs equipo greedy}
     \begin{tabular}{|l|l|}
     \hline
@@ -183,6 +185,7 @@ el equipo \textit{greedy}.
 
 \begin{table}[!ht]
     \centering
+    \small
     \caption{Estadísticas de 100 juegos. Equipo PIMC con jugador greedy vs equipo greedy}
     \begin{tabular}{|l|l|}
     \hline
@@ -203,3 +206,77 @@ compuesto de un jugador PIMC y un jugador \textit{greedy} contra un equipo
 puntos en el porcentaje de victorias. También el porcentaje de pases por juego
 aumentó ligeramente para el equipo mixto. Aun así, el equipo mixto superó el 70
 \% de victorias, como se buscaba en las restricciones del sistema.
+
+\section{Estimación de la capacidad del sistema}
+
+Como se mencionó en el primer capítulo, el propósito de este sistema es formar
+parte de una plataforma multijugador online. Es importante que su uso sea viable
+económicamente a escala. A continuación, se hace un cálculo aproximado de la
+cantidad de usuarios que podría soportar un servicio web basado en el jugador
+PIMC.
+
+Debido a que no se cuenta con métricas de usuarios reales, se plantean 5
+escenarios con distintos valores de la duración del turno del usuario (cuanto
+tarda el usuario en tirar una ficha). A partir de la duración se puede estimar
+la cantidad de carga que debe soportar el sistema por usuario. Por simplicidad,
+sólo se considera la modalidad de juego que implicaría una mayor carga para el
+servicio: un jugador humano emparejado con un jugador PIMC contra un equipo de
+dos jugadores PIMC.
+
+\begin{table}[!ht]
+    \centering
+    \caption{
+        Cantidad de usuarios que soporta el servidor simultáneamente
+        }
+    \small
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        Escenario &  1 &  2 & 3 & 4 & 5 \\ \hline
+        Duración del turno del usuario (segundos) & 2 & 5 & 8 & 10 & 15 \\ \hline
+        Tiros del usuario por minuto & 30.0 & 12.0 & 7.5 & 6.0 & 4.0 \\ \hline
+        Peticiones generadas por usuario por minuto & 90.0 & 36.0 & 22.5 & 18.0 & 12.0 \\ \hline
+        Capacidad de usuarios simultáneos por servidor & 0.67 & 1.67 & 2.67 & 3.33 & 5.0 \\ \hline
+    \end{tabular}
+    \label{CPC}
+\end{table}
+
+Para efectos de la estimación, se considera que un servicio web basado en el
+jugador PIMC tendría la capacidad de responder a 60 peticiones por minuto ya que
+el jugador tarda 1 segundo en calcular la ficha que tirará. En el cuadro
+\ref{CPC} se caracteriza la carga generada por un usuario dependiendo de la
+duración de su turno. Cada tiro del usuario genera 3 peticiones al servicio web,
+una por cada jugador PIMC. La capacidad de usuarios simultáneos es la capacidad
+de peticiones del servidor entre la cantidad de peticiones generadas por un
+usuario.
+
+Para calcular la cantidad total de usuarios que podría atender una instancia del
+servicio web basta con multiplicar las horas que se tendría activo al servidor
+por el factor de capacidad simultánea y dividirlo por el número de horas que
+está activo un usuario. Para el cálculo se considera un presupuesto de 24 horas
+de servidor por día sin lapsos ociosos, lo que se podría lograr con una
+distribución dinámica de la capacidad para los momentos de mayor carga del día.
+
+\begin{table}[!ht]
+    \centering
+    \caption{ Cantidad de usuarios que soporta el servicio al mes (4 semanas).
+        Redondeado a la centena más cercana. }
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        Escenario & 1 & 2 & 3 & 4 & 5 \\ \hline
+        % 0.5 hrs de uso por dia  & 900 & 2244 & 3588 & 4475 & 6720 \\ \hline
+        % 1 hr de uso por dia & 450 & 1122 & 1794 & 2237 & 3360 \\ \hline
+        % 2 hrs de uso por día & 225 & 561 & 897 & 1118 & 1680 \\ \hline
+        % 5 hrs de uso por día & 90 & 224 & 358 & 447 & 672 \\ \hline
+        0.5 hrs de uso diario por usuario & 900 & 2,200 & 3,600 & 4,500 & 6,700 \\ \hline
+          1 hr  de uso diario por usuario & 500 & 1,100 & 1,800 & 2,200 & 3,400 \\ \hline
+          2 hrs de uso diario por usuario & 300 & 600 & 900 & 1,100 & 1,700 \\ \hline
+          5 hrs de uso diario por usuario & 100 & 200 & 400 & 500 & 700 \\ \hline
+    \end{tabular}
+    \label{CPCU}
+\end{table}
+
+En la tabla \ref{CPCU} se muestra la cantidad de usuarios por mes para distintos
+perfiles de uso. Por ejemplo, para un uso de 2 horas al día en el escenario 2,
+el servicio tendría la capacidad de atender 600 usuarios por mes. Se puede
+observar que, bajo los supuestos más demandantes, una instancia del servicio web
+sería capaz de atender al menos cien usuarios por mes.

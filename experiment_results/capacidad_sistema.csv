@@ -1,0 +1,6 @@
+Duración del turno del usuario (segundos),Tiros del usuario por minuto,Peticiones generadas por usuario por minuto,Capacidad de usuarios simultáneos del servidor,Capacidad de usuarios por mes (0.5 hrs de uso al dia por usuario),Capacidad de usuarios por mes (1 hr de uso al dia por usuario),Capacidad de usuarios por mes (2 hrs de uso al dia por usuario),Capacidad de usuarios por mes (5 hrs de uso al dia por usuario)
+2,30.0,90.0,0.67,900,450,225,90
+5,12.0,36.0,1.67,2244,1122,561,224
+8,7.5,22.5,2.67,3588,1794,897,358
+10,6.0,18.0,3.33,4475,2237,1118,447
+15,4.0,12.0,5.0,6720,3360,1680,672
