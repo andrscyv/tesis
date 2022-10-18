@@ -16,17 +16,18 @@ col_headers_spanish = [
     'Duración del turno del usuario (segundos)',
     'Tiros del usuario por minuto',
     'Peticiones generadas por usuario por minuto',
-    'Capacidad de usuarios simultáneos del servidor',
-    'Capacidad de usuarios por mes (0.5 hrs de uso al dia por usuario)',
-    'Capacidad de usuarios por mes (1 hr de uso al dia por usuario)',
-    'Capacidad de usuarios por mes (2 hrs de uso al dia por usuario)',
-    'Capacidad de usuarios por mes (5 hrs de uso al dia por usuario)',
+    'Capacidad de usuarios simultáneos por servidor',
+    '0.5 hrs de uso al dia por usuario',
+    '1 hr de uso al dia por usuario',
+    '2 hrs de uso al dia por usuario',
+    '5 hrs de uso al dia por usuario',
 ]
+decimal_precision = 1
 def capacity_metrics(
         user_turn_duration,
         bot_turn_duration,
     ):
-    user_plays_per_minute = 60 / user_turn_duration
+    user_plays_per_minute = 60 / (user_turn_duration + 3*bot_turn_duration)
 
     # For a game with one human and 3 bots, every human play
     # would trigger 3 bot server requests
@@ -34,14 +35,14 @@ def capacity_metrics(
 
     request_capacity_per_minute = 60 / bot_turn_duration
 
-    simultaneous_user_capacity = round(request_capacity_per_minute / user_requests_per_min,2)
+    simultaneous_user_capacity = request_capacity_per_minute / user_requests_per_min
     
 
     capacity_metrics = [
-        user_turn_duration,
-        user_plays_per_minute,
-        user_requests_per_min,
-        simultaneous_user_capacity,
+        round(user_turn_duration, decimal_precision),
+        round(user_plays_per_minute, decimal_precision),
+        round(user_requests_per_min, decimal_precision),
+        round(simultaneous_user_capacity, decimal_precision),
     ]
 
     for user_hour_usage_per_day in [0.5, 1, 2, 5]:
