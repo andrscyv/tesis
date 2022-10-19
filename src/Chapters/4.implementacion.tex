@@ -26,7 +26,10 @@ el estado del juego.
 Una vez que se ha implementado la interfaz se puede construir un objeto
 MonteCarloTreeSearch con el cual se puede invocar la ejecución de MCTS. La clase
 requiere un parámetro que determina el número de iteraciones de MCTS que se
-ejecutan.
+ejecutan. Como nuestro sistema debe tener control sobre el tiempo total de
+ejecución fue necesario realizar una contribución a la biblioteca mctspy para
+añadir la opción de parametrizar el algoritmo por número de segundos permitidos
+de ejecución.
 
 \section{Implementación de la clase de juego}
 
