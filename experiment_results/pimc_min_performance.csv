@@ -1,2 +1,2 @@
-experiment_id,team_1_p1,team_1_p3,team_2_p2,team_2_p4,total_plays,avg_team_1_num_plays,avg_team_2_num_plays,avg_team_1_num_pass,avg_team_2_num_pass,percent_win_team_1,percent_win_team_2,percent_draws,percent_win_not_hanged_team_1,percent_win_not_hanged_team_2,avg_team_1_seconds_elapsed,avg_team_2_seconds_elapsed
-175,pimc_0.01_100,pimc_0.01_100,greedy,greedy,2548,12.82,12.66,1.68,2.88,73.0,24.0,3.0,57.0,19.0,0.661990775890916,2.03115303557819e-05
+"Porcentaje de victorias PIMC","Porcentaje de victorias greedy","Porcentaje empates","Porcentaje victorias sin juego cerrado PIMC","Porcentaje victorias sin juego cerrado greedy","Promedio pases por juego PIMC","Promedio pases por juego greedy"
+88.0,10.0,2.0,65.0,6.0,1.63,2.69

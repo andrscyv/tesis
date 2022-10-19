@@ -66,7 +66,7 @@ una jugada predefinida para el estado actual del juego.
 Las circunstancias para utilizar una jugada predeterminada son dos. La primera
 es si sólo se tiene una jugada posible, en cuyo caso se realiza dicha jugada sin
 iniciar el proceso costoso de búsqueda. La segunda es en el primer turno del
-juego, en donde puede ser deseable incorporar conocimiento experto del dominio
+juego, en donde puede ser deseable incorporar conocimiento experto del dominó
 para elegir una acción cuando no se cuenta con suficiente información para que
 el sistema calcule una jugada efectiva en el límite de tiempo establecido.
 
@@ -125,9 +125,12 @@ invierte en calcular la acción óptima en cada uno de los escenarios.
 
 Como parte de la API que el sistema expondrá para ser integrado con otras
 plataformas se decidió que la comunicación de información se haga con el
-estándar JSON (ECMA-404) debido a su flexibilidad y facilidad de uso. Asimismo,
-se utilizará el estándar PEP8 que define una guía de estilo y mejores prácticas
-para escribir código en Python.
+estándar JSON (ECMA, 2017) debido a su flexibilidad y facilidad de uso.
+
+Conforme a las restricciones planteadas en el análisis del problema, el jugador
+debe ser ejecutable en el sistema operativo Ubuntu, el cual sigue el estándar
+POSIX (IEEE, 2018). De forma similar, debe ser posible integrarlo a un servicio web que
+utilice como método de comunicación el estándar HTTP (IETF, 2022).
 % \newpage
 
 % \section{Regresión lineal múltiple}

@@ -1,0 +1,6 @@
+Duración del turno del usuario (segundos),Tiros del usuario por minuto,Peticiones generadas por usuario por minuto,Capacidad de usuarios simultáneos por servidor,0.5 hrs de uso al dia por usuario,1 hr de uso al dia por usuario,2 hrs de uso al dia por usuario,5 hrs de uso al dia por usuario
+2,12.0,36.0,1.7,2240,1120,560,224
+5,7.5,22.5,2.7,3584,1792,896,358
+8,5.5,16.4,3.7,4928,2464,1232,492
+10,4.6,13.8,4.3,5824,2912,1456,582
+15,3.3,10.0,6.0,8064,4032,2016,806

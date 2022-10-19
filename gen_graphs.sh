@@ -31,7 +31,7 @@ graph ${source_path}/mcts_is_correct.csv \
 
 graph ${source_path}/grid_search_vs_greedy.csv \
 --title 'Búsqueda en cuadricula equipo PIMC vs equipo Jugadores Débil' \
---xlabel 'Número de simulaciones' \
+--xlabel 'Número de escenarios (n)' \
 --ylabel 'Porcentaje de victorias PIMC' \
 --xcol 'pimc_num_simulations' \
 --ycol 'percent_wins_algo' \
@@ -45,7 +45,7 @@ graph ${source_path}/grid_search_vs_greedy.csv \
 
 graph ${source_path}/grid_search_vs_strong.csv \
 --title 'Búsqueda en cuadricula equipo PIMC vs equipo Jugadores Fuertes' \
---xlabel 'Número de simulaciones' \
+--xlabel 'Número de escenarios (n)' \
 --ylabel 'Porcentaje de victorias PIMC' \
 --xcol 'pimc_num_simulations' \
 --ycol 'percent_wins_algo' \
