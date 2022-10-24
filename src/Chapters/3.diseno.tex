@@ -19,13 +19,14 @@ crear jugadores de póker. Dicho algoritmo utiliza un enfoque iterativo en el qu
 se busca aproximar una función que para cada estado del juego defina una acción
 óptima (Bowling et al., 2017).
 
-Por otro lado, existe el algoritmo Perfect Information Monte Carlo (PIMC). En
-este algoritmo se busca transformar el juego de información imperfecta en un
-conjunto de juegos de información perfecta congruentes con el estado actual del
-juego. El conjunto es una muestra aleatoria de los posibles escenarios en los
-que el jugador se puede encontrar. En cada uno de estos escenarios se realiza
-búsqueda en árbol y al final se toma la acción que en el mayor número de
-escenarios llevó a una victoria.
+Por otro lado, existe una metodología general para utilizar búsqueda en árbol
+para juegos de información imperfecta. El algoritmo Perfect Information Monte
+Carlo (PIMC), como es llamado por Whitehouse (2014), busca transformar el juego
+de información imperfecta en un conjunto de juegos de información perfecta
+congruentes con el estado actual del juego. El conjunto es una muestra aleatoria
+de los posibles escenarios en los que el jugador se puede encontrar. En cada uno
+de estos escenarios se realiza búsqueda en árbol y al final se toma la acción
+que en el mayor número de escenarios llevó a una victoria.
 
 Se considera que PIMC muestra una ventaja sobre la primera alternativa por su
 simpleza y facilidad de implementación. Así mismo, permite aprovechar la
