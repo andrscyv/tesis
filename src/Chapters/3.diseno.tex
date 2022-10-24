@@ -75,7 +75,7 @@ la jugada será la salida del sistema. En otro caso, a partir de la historia del
 juego se calcularán las fichas que aun no han sido tiradas y el número de fichas
 que tiene cada jugador. Este resultado se pasará al siguiente módulo.
 
-En esta primera versión del sistema sólo implementaremos el caso en que existe
+En esta primera versión del sistema, sólo se implementó el caso en que existe
 una única jugada posible. Dejamos como linea de investigación para futuras
 versiones el incluir conocimiento experto para elegir la primer jugada.
 
@@ -83,16 +83,16 @@ versiones el incluir conocimiento experto para elegir la primer jugada.
 
 Siguiendo el algoritmo de PIMC, es necesario generar un conjunto de posibles
 escenarios en los que se puede encontrar el jugador. En este caso, los
-escenarios se diferencian por las fichas que poseen los otros jugadores. Ya que
-se cuenta con el conjunto de fichas que aun no se han jugado, se puede simular
-el proceso de repartir las fichas aleatoriamente a los otros jugadores y así
+escenarios se distinguen por las fichas que poseen los otros jugadores. Ya que
+se conoce el conjunto de fichas que aun no se han jugado, se puede simular el
+proceso de repartir las fichas aleatoriamente a los otros jugadores y así
 generar los escenarios. Un escenario se conforma de un arreglo en donde se
 guardan las fichas que se le repartieron aleatoriamente a cada jugador.
 
 El número de simulaciones que se realizan es un parámetro del sistema que
 impacta su comportamiento en dos formas. Entre más simulaciones se realizan,
 aumenta el tiempo de ejecución. Entre menos simulaciones, el sistema toma en
-cuenta menos escenarios y el desempeño del jugador empeora.
+cuenta menos escenarios y podría aumentar la varianza de su respuesta.
 
 Al final, se recopilan los distintos escenarios en un arreglo y se pasan al
 siguiente módulo.
@@ -101,30 +101,31 @@ siguiente módulo.
 
 Una vez que se ha transformado el juego en un conjunto de escenarios en los que
 se conocen las fichas de los oponentes, es posible calcular una acción óptima
-para cada uno de los escenarios. La ficha que el jugador artificial tirará será
-aquella que en el mayor número de escenarios fue óptima.
+para cada uno. La ficha que el jugador artificial tirará será aquella que en el
+mayor número de escenarios fue óptima.
 
-Para hacer el cálculo de la jugada óptima hay distintas
-alternativas.\textit{Negamax}, \textit{Alpha-Beta Prunning} y \textit{Monte
-   Carlo Tree Search} (MCTS) son los principales candidatos para realizar búsqueda
-en árbol de juego con información perfecta
+Para hacer el cálculo de la jugada óptima hay distintas alternativas.
+\textit{Negamax}, \textit{Alpha-Beta Prunning} y \textit{Monte Carlo Tree
+Search} (MCTS) son los principales candidatos para realizar búsqueda en árbol de
+juego con información perfecta.
 
 Se eligió el algoritmo MCTS debido a dos características que no comparte con las
 dos primeras opciones. En primer lugar, es posible correr el algoritmo sin
 necesidad de una heurística, es decir, de una función que estime la utilidad de
-un estado del juego. En segundo lugar, MCTS es un algoritmo \textit{anytime}, lo
-que significa que la ejecución puede detenerse en un intervalo arbitrario de
-tiempo y el algoritmo regresará la mejor jugada que ha encontrado hasta ese
-momento.
+un estado no terminal del juego. En segundo lugar, MCTS es un algoritmo
+\textit{anytime}, lo que significa que la ejecución puede detenerse en un
+intervalo arbitrario de tiempo y el algoritmo regresará la mejor jugada que ha
+encontrado hasta ese momento.
 
 La segunda propiedad es particularmente apropiada para este sistema ya que
 permite controlar el tiempo de ejecución total modificando el tiempo que se
-invierte en calcular la acción óptima en cada uno de los escenarios.
+invierte en calcular la acción óptima en cada uno de los escenarios con mayor
+granularidad.
 
 \section{Estándares utilizados}
 
 Como parte de la API que el sistema expondrá para ser integrado con otras
-plataformas se decidió que la comunicación de información se haga con el
+plataformas, se decidió que la comunicación de información se haga con el
 estándar JSON (ECMA, 2017) debido a su flexibilidad y facilidad de uso.
 
 Conforme a las restricciones planteadas en el análisis del problema, el jugador

@@ -24,10 +24,10 @@ información sobre las manos de sus contrincantes ni de su pareja de equipo.
 
 En segundo lugar, el desempeño del programa tiene que ser mejor que la
 estrategia más sencilla posible (el jugador greedy): de entre las fichas que se
-tiene en la mano, siempre bajar la de mayor puntaje. Una jugada greedy es
-sumamente barata de calcular. De no cumplirse con este requisito no tendría
-sentido utilizar una estrategia más compleja y costosa en tiempo y recursos
-computacionales.
+tiene en la mano y se pueden tirar, siempre bajar la de mayor puntaje. Una
+jugada greedy es sumamente barata de calcular. De no cumplirse con este
+requisito no tendría sentido utilizar una estrategia más compleja y costosa en
+tiempo y recursos computacionales.
 
 Así, se pone como meta que un equipo de jugadores artificiales debe vencer a un
 equipo de jugadores greedy en al menos 70\% de las partidas. Se considera que
@@ -54,9 +54,11 @@ puede definir unas características mínimas del ambiente de ejecución en el cu
 la solución debe correr.
 
 Como un punto de referencia, se ha elegido la instancia más modesta de la
-categoría de servidores de cpu compartido de Digital Ocean. Dicho servidor es
-una máquina virtual que cuenta con un gigabyte de memoria RAM y un procesador
-virtual. Como se describe en la documentación de Digital Ocean, el procesador
+categoría de servidores de cpu compartido de Digital Ocean, la cual tiene un
+costo mensual de seis dólares americanos a la fecha de realización de este
+escrito. Dicho servidor es una máquina virtual que cuenta con un gigabyte de
+memoria RAM y un procesador virtual. Como se describe en la documentación de
+Digital Ocean (\textit{Choosing the Right Droplet Plan}, 19), el procesador
 virtual es aproximadamente equivalente a un hiperhilo del servidor físico sobre
 el que corre. Dependiendo de la carga que experimenten las máquinas virtuales
 que corren en el servidor físico, el hiperhilo puede ser compartido con otros
@@ -71,10 +73,11 @@ servidor antes descrito, deberá tener suficiente capacidad para atender las
 solicitudes de al menos unos cientos de usuarios al mes. De otra forma, es muy
 probable que el costo de la solución sea prohibitivo para su uso.
 
-Por otra parte, debido a que Ubuntu es de licencia libre y que su uso es muy
-común en el ecosistema de aplicativos web, se decidió que será la plataforma
-principal en la que debe ejecutarse nuestro sistema. Por las mismas razones, se
-decidió que el sistema debe estar implementado en el lenguaje \textit{Python 3}.
+Por otra parte, debido a que el sistema operativo Ubuntu es de licencia libre y
+que su uso es muy común en el ecosistema de aplicativos web, se decidió que será
+la plataforma principal en la que debe ejecutarse nuestro sistema. Por las
+mismas razones, se decidió que el sistema debe estar implementado en el lenguaje
+\textit{Python 3}.
 
 El uso de bibliotecas de terceros para realizar la implementación puede ser
 deseable para ahorrar tiempo de desarrollo. Pero en caso de utilizarse, las
@@ -111,18 +114,18 @@ exitosamente. Dicho trabajo extiende la línea de investigación sobre las
 limitaciones de PIMC en el contexto de información imperfecta que inician Frank
 y Basin (1998)
 
-Se recuperó de la web un proyecto de licenciatura sobre un jugador
-artificial para dominó (en el texto se le refiere como \textit{Latin-American
-dominoes}) desarrollado por Angeris y Li (2016) de la universidad de Stanford.
-El proyecto consiste en simulaciones para contrastar distintas algoritmos pero
-no tiene la finalidad de ser consumido como una API.
+Se recuperó de la web un proyecto de licenciatura sobre un jugador artificial
+para dominó (en el texto se le refiere como \textit{Latin-American dominoes})
+desarrollado por Angeris y Li (2016) de la universidad de Stanford. El proyecto
+consiste en simulaciones para contrastar distintas algoritmos pero no tiene la
+finalidad de ser consumido como una API.
 
 Asimismo, se encontró en Github una implementación del algoritmo \textit{Monte
-Carlo Tree Search} (MCTS) en el lenguaje \textit{Python}: mctspy
-(Czarnogórski, 2018a). Entre las implementaciones de este lenguaje, es la que
-cuenta con mayor número de estrellas en Github. También, forma parte de un blog
-divulgativo sobre MCTS escrito por el mismo autor que la biblioteca, Kamil
-Czarnogórski(2018b), quien se identifica por el pseudónimo Int8.
+Carlo Tree Search} (MCTS) en el lenguaje \textit{Python}: mctspy (Czarnogórski,
+2018a). Entre las implementaciones en este lenguaje, es la que cuenta con mayor
+número de estrellas en Github. También, forma parte de un blog divulgativo sobre
+MCTS escrito por el mismo autor que la biblioteca, Kamil Czarnogórski(2018b),
+quien se identifica por el pseudónimo Int8.
 
 % La siguiente gráfica está hecha a mano porque la que arroja R se pixelea un poco al importarla a LaTeX. Pueden apoyarse en Excel para obtener las coordenadas más rápido
 

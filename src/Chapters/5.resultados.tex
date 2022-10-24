@@ -2,16 +2,16 @@
 
 \noindent
 En esta sección se muestran los resultados obtenidos después de la
-implementación. En primer lugar se realizaron un conjunto de pruebas para
-validar que el sistema tuviera un funcionamiento correcto. Se validó que el
-último módulo, la búsqueda en árbol de información perfecta, calculara jugadas
-con buen desempeño. En segundo lugar, se realizaron dos búsquedas en cuadrícula
-en el espacio de parámetros de PIMC. Así, fue posible identificar cómo varía el
-desempeño en función de los parámetros y elegir una combinación óptima de ellos.
+implementación. Se realizaron un conjunto de pruebas para validar que el sistema
+tuviera un funcionamiento correcto. Se validó que el último módulo, la búsqueda
+en árbol de información perfecta, calculara jugadas con buen desempeño. En
+segundo lugar, se realizaron dos búsquedas en cuadrícula en el espacio de
+parámetros de PIMC. Así, fue posible identificar cómo varía el desempeño en
+función de los parámetros y elegir una combinación óptima de ellos.
 Posteriormente, se muestra el desempeño del sistema con los parámetros
-seleccionados y se caracteriza con base en distintas estadísticas recolectadas
-de múltiples juegos simulados. Por último, se realiza una estimación de la
-capacidad que un servicio web basada en el sistema podría tener.
+seleccionados y se caracteriza con base en estadísticas de múltiples juegos
+simulados. Por último, se realiza una estimación de la capacidad que un servicio
+web basada en el sistema podría tener.
 
 \section{Validación de MCTS}
 
@@ -23,11 +23,12 @@ con mctspy, era necesario validar que el resultado de la búsqueda fuera una jug
 con buen desempeño.
 
 Para verificar que la integración con la biblioteca mctspy era correcta, se
-realizaron una serie de simulaciones entre un equipo de jugadores MCTS y un
-equipo de jugadores greedy. Cabe resaltar que los jugadores MCTS conocían todas
-las fichas, incluyendo las de sus contrincantes, ya que con este experimento
-sólo se buscaba validar la búsqueda con información perfecta. Por otro lado,
-para los jugadores greedy es irrelevante conocer las fichas de sus
+realizaron una serie de simulaciones entre un equipo de jugadores MCTS
+(jugadores sin simulación de escenarios, sólo utilizando el último modulo del
+sistema) y un equipo de jugadores greedy. Cabe resaltar que los jugadores MCTS
+conocían todas las fichas, incluyendo las de sus contrincantes, ya que con este
+experimento sólo se buscaba validar la búsqueda con información perfecta. Por
+otro lado, para los jugadores greedy es irrelevante conocer las fichas de sus
 contrincantes, ya que su jugada se calcula exclusivamente con la información de
 sus propias fichas.
 
@@ -75,8 +76,7 @@ fuerte. Para el equipo débil se utilizaron los jugadores \textit{greedy} antes
 descritos. Para el equipo fuerte se utilizó un jugador MCTS con conocimiento de
 todas las fichas repartidas. Se justifica la elección del jugador fuerte
 basándose en que un jugador humano experto tiene una gran habilidad para inferir
-las fichas de los demás participantes. Además, posee una gran compenetración con
-su compañero para poder cooperar armónicamente.
+las fichas de los demás participantes.
 
 \begin{figure}[H]
     \begin{center}
@@ -278,7 +278,7 @@ distribución dinámica de la capacidad para los momentos de mayor carga del dí
 \end{table}
 
 En la tabla \ref{CPCU} se muestra la cantidad de usuarios por mes para distintos
-perfiles de uso. Por ejemplo, para un uso de 2 horas al día en el escenario 2,
+perfiles de uso. Por ejemplo, para un uso de 2 horas al día en el escenario 1,
 el servicio tendría la capacidad de atender 600 usuarios por mes. Se puede
 observar que, bajo los supuestos más demandantes, una instancia del servicio web
 sería capaz de atender al menos cien usuarios por mes.

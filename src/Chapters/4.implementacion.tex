@@ -3,17 +3,17 @@
 \noindent
 
 En este capítulo se describe la implementación del sistema basada en el diseño
-previamente establecido. Primero se discute la biblioteca utilizada como
-implementación del algoritmo MCTS : mctspy. Posteriormente, se muestra la clase
-que implementa las reglas del juego de dominó y su integración a mctspy. Por
-último, se comenta la integración del módulo de muestreo con el algoritmo MCTS
+previamente establecido. Primero se discute la biblioteca de MCTS: mctspy.
+Posteriormente, se muestra la clase que implementa las reglas del juego de
+dominó y su integración con la biblioteca. Por último, se comenta la integración
+del módulo de muestreo con la búsqueda en árbol.
 
-\section{Implementación de MCTS}
+\section{Biblioteca de \textit{Monte Carlo Tree Search}}
 
-Una parte central del sistema es el algoritmo MCTS. Después de buscar bibliotecas
-alternativas en el Índice de Paquetes de Python (PyPI por sus siglas en inglés)
-se decidió utilizar la biblioteca mctspy de Kamil Czarnogórski. El paquete se
-encuentra publicado como código abierto en Github bajo la licencia MIT.
+Una parte central del sistema es el algoritmo MCTS. Después de buscar distintas
+opciones en el Índice de Paquetes de Python (PyPI por sus siglas en inglés) se
+decidió utilizar la biblioteca mctspy de Kamil Czarnogórski(2018a). El paquete
+se encuentra publicado como código abierto en Github bajo la licencia MIT.
 
 El repositorio cuenta con escasa documentación, pero el estilo de programación
 es claro y sencillo, lo que facilita la lectura del código fuente. Para poder
@@ -26,10 +26,10 @@ el estado del juego.
 Una vez que se ha implementado la interfaz se puede construir un objeto
 MonteCarloTreeSearch con el cual se puede invocar la ejecución de MCTS. La clase
 requiere un parámetro que determina el número de iteraciones de MCTS que se
-ejecutan. Como nuestro sistema debe tener control sobre el tiempo total de
-ejecución fue necesario realizar una contribución a la biblioteca mctspy para
-añadir la opción de parametrizar el algoritmo por número de segundos permitidos
-de ejecución.
+ejecutarán. Para facilitar el control sobre el tiempo total de ejecución, se
+realizó una contribución a mctspy en la cual se añadió la opción de configurar
+el algoritmo con un presupuesto de tiempo. Así, se corren tantas iteraciones
+MCTS como se puedan en el lapso establecido.
 
 \section{Implementación de la clase de juego}
 
@@ -52,9 +52,8 @@ estado del juego de forma consistente con las reglas del dominó.
 
 \section{Módulo de muestreo}
 
-Por último, se implementó un algoritmo de muestreo de las posibles formas de
-repartir las fichas que no se conocen como se muestra pseudocódigo de la figura
-\ref{CM}.
+Por último, se implementó un algoritmo para generar las posibles formas de
+repartir las fichas que no se conocen.
 
 \begin{figure}[ht]
    \begin{center}
@@ -64,11 +63,17 @@ repartir las fichas que no se conocen como se muestra pseudocódigo de la figura
    \end{center}
 \end{figure}
 
-En el algoritmo de la figura anterior se representa la mano de cada jugador como
-un conjunto de fichas para poder explotar las operaciones de conjuntos del
-lenguaje Python. Primero se calcula una muestra para la mano del primer jugador
-a la derecha. Luego se calculan las manos de los jugadores posteriores con las
-fichas que aun no se han repartido.
+Como se muestra en el pseudocódigo de la figura \ref{CM}, primero se generan
+todas las fichas del juego (\textit{tiles} en ingles). Luego, se calculan las
+fichas que aun no se han jugado (\textit{tilesNotPlayed}) sustrayendo de
+\textit{tiles} las fichas que ya se tiraron (\textit{playedTiles}) y las fichas
+asignadas al bot (\textit{playerTiles}). Las operaciones de resta corresponden a
+la resta de conjuntos, como se utiliza en el lenguaje Python. Posteriormente se
+genera el arreglo \textit{firstHandSample}, que contiene las fichas del primer
+jugador a la derecha para distintas reparticiones. Se generan la cantidad de
+reparticiones definidas en \textit{sampleSize}. Por último, se generan los
+arreglos de fichas para el segundo y tercer jugador removiendo las fichas de las
+manos de los demás jugadores.
 
 % \noindent El Grupo Huatusco se ha reunido por más de quince años intentando responder la pregunta de por qué México no crece a mayores tasas.
 
