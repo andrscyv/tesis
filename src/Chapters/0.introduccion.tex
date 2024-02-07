@@ -5,10 +5,10 @@
 
 \noindent
 
-A continuación se presentará el problema que se aborda en este trabajo. Se dará
+A continuación se presenta el problema que se aborda en este trabajo. Se da
 el contexto histórico de la relación entre los videojuegos y los jugadores
 artificiales para luego identificar el problema y definir tanto los objetivos
-como la metodología a seguir.
+como la metodología seguida.
 
 \section{Contexto}
 
@@ -19,7 +19,7 @@ popular y en la industria de la computación.
 
 Asimismo, los juegos de mesa han tenido un papel importante en el desarrollo de
 la inteligencia artificial siendo un área muy fructífera de investigación como
-en el caso del ajedrez y la famosa contienda entre Deep Blue y Garry Kasparov
+en el caso del ajedrez y la famosa contienda entre Deep Blue y Garry Kasparov.
 
 \subsection{Identificación del problema}
 
@@ -45,7 +45,7 @@ Así, es deseable contar con un jugador artificial que permita a los usuarios
 iniciar una partida aun en las circunstancias en que no cuenten con suficientes
 personas para completar los equipos. Al momento en que se realiza este escrito,
 no se ha encontrado una implementación de código abierto de un jugador
-artificial para el juego de dominó (con las reglas que se usan en Latinoamérica)
+artificial para el juego de dominó, con las reglas que se usan en Latinoamérica,
 que cuente tanto con una licencia que permita su uso comercial así como una
 interfaz de programación diseñada para su integración a un juego de tiempo real
 con usuarios humanos.
@@ -62,17 +62,22 @@ contrincantes.
 
 Para la implementación del bot, se decidió utilizar la metodología de cascada
 debido a que el alcance y la funcionalidad del proyecto es relativamente
-pequeña.
+pequeña. Dicha metodología sigue una secuencia de fases donde cada una depende
+de la fase anterior. Las fases típicas incluyen: análisis, diseño,
+implementación, pruebas, despliegue y mantenimiento (Schach, 2007).
 
-\subsection{Organización del documento}
-\begin{enumerate}
-    \item Análisis de requisitos del software
-    \item El juego de dominó
-    \item Diseño del programa
-    \item Implementación
-    \item Validación
-    \item Conclusiones
-\end{enumerate}
+También, se siguió la metodología de \textit{test-driven development} (TDD) para
+escribir el código del jugador. TDD es una metodología de desarrollo de software
+donde se escriben primero las pruebas y luego el código que las hace pasar. Tiene 
+múltiples beneficios como la reducción de errores, código más limpio y una colección
+de pruebas automáticas para el sistema (Martin, 2008)
 
+El escrito está organizado de la siguiente manera: en el primer capitulo se
+realiza el análisis de requisitos que debe cumplir el sistema. En el segundo
+capítulo se describe el juego de dominó y las reglas que debe seguir el jugador.
+En el tercer capítulo se describe el diseño del programa. En el cuarto capítulo
+se describe la implementación realizada. En el quinto capítulo se describe la
+validación del trabajo según los requerimientos definidos. Finalmente, en el
+sexto capítulo se presentan las conclusiones y los resultados.
 
 % Se sugiere que el primer párrafo de cada sección no tenga sangría: \noindent
