@@ -9,7 +9,6 @@ trabajo. Posteriormente, se discuten algunas propiedades importantes del juego
 que permiten hacer una estimación de su complejidad y compararlo con la
 complejidad de otros juegos de mesa.
 
-\newpage
 
 \section{Dinámica del juego}
 
@@ -40,16 +39,20 @@ los siguientes resultados.
     \begin{center}
         \includegraphics{factor_prom_ramificacion.png}
         \caption{Factor de ramificación promedio}
+        En la gráfica se observa cómo varía el número de acciones posibles, en el
+        eje vertical, conforme se avanza en los turnos del juego, en el eje
+        horizontal. Las barras verticales de error representan el intervalo de
+        confianza del 95\%.
         \label{FPR}
     \end{center}
 \end{figure}
 
 En la figura \ref{FPR} se muestra, en el eje vertical, el número promedio de
-fichas que un jugador puede tirar en el turno indicado en el eje horizontal. El
-primer jugador siempre puede tirar cualquiera de sus fichas. Después de él, los
-jugadores pueden tirar 3 o menos fichas en promedio. Este factor de ramificación
-es pequeño si se compara al de otros juegos de mesa como el ajedrez, el cual
-tiene un factor estimado entre 31 y 35 movimientos.
+fichas que un jugador puede tirar en el turno correspondiente al eje horizontal.
+El primer jugador siempre puede tirar cualquiera de sus fichas. Después de él,
+los jugadores pueden tirar 3 o menos fichas en promedio. Este factor de
+ramificación es pequeño si se compara al de otros juegos de mesa como el
+ajedrez, el cual tiene un factor estimado entre 31 y 35 movimientos.
 
 \section{Información imperfecta}
 
