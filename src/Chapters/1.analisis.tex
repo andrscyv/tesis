@@ -1,19 +1,19 @@
 \chapter{Análisis}
 
 \noindent
-Una vez que se ha identificado el problema, se formulará una primera
-aproximación a la solución por medio de los requerimientos funcionales que debe
-cumplir, así como por las restricciones que debe satisfacer. También se
-mostrarán trabajos relacionados.
+Una vez que se ha identificado el problema, se formula una primera aproximación
+a la solución por medio de los requerimientos funcionales que debe cumplir, así
+como por las restricciones que debe satisfacer. También se muestran los trabajos
+relacionados con la implementación de jugadores artificiales en juegos de
+información imperfecta.
 
-\newpage
 
 \section{Requerimientos funcionales}
 
-El sistema generará una jugada a partir del estado actual del juego. Es decir,
-el programa recibirá como entrada una representación de sus fichas asignadas así
-como de las fichas tiradas por los otros participantes y como salida indicará
-cual de sus fichas debe jugarse.
+El sistema debe generar una jugada a partir del estado actual del juego. Es
+decir, el programa recibe como entrada una representación de sus fichas
+asignadas así como de las fichas tiradas por los otros participantes y como
+salida indica cual de sus fichas debe jugarse.
 
 \section{Requerimientos no funcionales}
 
@@ -34,9 +34,6 @@ equipo de jugadores greedy en al menos 70\% de las partidas. Se considera que
 este margen es el mínimo para justificar el uso de un algoritmo distinto a la
 estrategia greedy.
 
-Por último, debe exponer una API sencilla para ser integrado a distintas
-interfaces, tanto aplicaciones web como móviles.
-
 \section{Restricciones}
 
 El software a desarrollar cuenta con distintas restricciones que debe cumplir.
@@ -48,42 +45,41 @@ En segundo lugar, el sistema debe cumplir con los requerimientos funcionales y
 no funcionales dentro de un ambiente de ejecución en la nube con un costo
 razonable. Es difícil estimar el costo de los recursos computacionales que
 consumirá la solución, pues depende de la cantidad de usuarios del sistema así
-como de su comportamiento de uso. No se cuenta con los datos necesarios para
-estimar la naturaleza de la carga a la que el sistema debe hacer frente pero se
+como de su comportamiento de uso. Aunque no se cuenta con los datos necesarios
+para estimar la naturaleza de la carga a la que el sistema debe hacer frente, se
 puede definir unas características mínimas del ambiente de ejecución en el cual
-la solución debe correr.
+la solución debe correr. En la sección \ref{sec:capacity_estimation} se muestra
+un análisis con este propósito.
 
 Como un punto de referencia, se ha elegido la instancia más modesta de la
-categoría de servidores de cpu compartido de Digital Ocean, la cual tiene un
-costo mensual de seis dólares americanos a la fecha de realización de este
-escrito. Dicho servidor es una máquina virtual que cuenta con un gigabyte de
-memoria RAM y un procesador virtual. Como se describe en la documentación de
-Digital Ocean (\textit{Choosing the Right Droplet Plan}, 19), el procesador
+categoría de servidores de CPU compartido de Digital Ocean, que tiene un costo
+mensual de seis dólares de EE.UU. a la fecha de realización de este escrito.
+Dicho servidor es una máquina virtual que cuenta con un Gigabyte de memoria RAM
+y un procesador virtual. Como se describe en Digital Ocean (2019), el procesador
 virtual es aproximadamente equivalente a un hiperhilo del servidor físico sobre
 el que corre. Dependiendo de la carga que experimenten las máquinas virtuales
 que corren en el servidor físico, el hiperhilo puede ser compartido con otros
-usuarios. En casos en que la máquina virtual tenga una carga alta de trabajo
-puede obtener más de un hiperhilo si el servidor físico cuenta con la capacidad
+usuarios. Cuando la máquina virtual tiene una carga alta de trabajo puede
+obtener más de un hiperhilo si el servidor físico cuenta con la capacidad
 suficiente. El hardware que provee Digital Ocean para el plan básico es una
 combinación de procesadores de primera generación (o menos recientes)
 \textit{Xeon Scalable} y procesadores \textit{AMD EPYC}
 
-Se considera que un servicio web basado en nuestro sistema, corriendo en el
-servidor antes descrito, deberá tener suficiente capacidad para atender las
-solicitudes de al menos unos cientos de usuarios al mes. De otra forma, es muy
-probable que el costo de la solución sea prohibitivo para su uso.
+Un servicio web basado en nuestro sistema, corriendo en el servidor antes
+descrito, debe tener suficiente capacidad para atender las solicitudes de al
+menos unos cientos de usuarios al mes. De otra forma, es muy probable que el
+costo de la solución sea prohibitivo para su uso.
 
 Por otra parte, debido a que el sistema operativo Ubuntu es de licencia libre y
-que su uso es muy común en el ecosistema de aplicativos web, se decidió que será
-la plataforma principal en la que debe ejecutarse nuestro sistema. Por las
-mismas razones, se decidió que el sistema debe estar implementado en el lenguaje
-\textit{Python 3}.
+que su uso es muy común en el ecosistema de aplicativos web, se eligió como la
+plataforma principal para ejecutar nuestro sistema. Por las mismas razones, el
+sistema se implementó en el lenguaje \textit{Python 3}.
 
 El uso de bibliotecas de terceros para realizar la implementación puede ser
 deseable para ahorrar tiempo de desarrollo. Pero en caso de utilizarse, las
 bibliotecas deben satisfacer dos criterios. Primero, deben ser de código
-abierto, para que puedan ser modificadas en caso de ser necesario. En segundo
-lugar, deben contar con una licencia que permita su uso comercial.
+abierto, para que puedan ser modificadas en caso necesario. En segundo lugar,
+deben contar con una licencia que permita su uso comercial.
 
 Por último, se destaca que el propósito de este trabajo es obtener un software
 apto para su uso en producción y que sea susceptible de modificaciones y mejoras
@@ -95,9 +91,11 @@ para las distintas personas encargadas de su mantenimiento y mejora.
 
 \section{Trabajos relacionados}
 
-Uno de los trabajos importante en el ámbito de algoritmos  para juegos de
-información imperfecta lo realiza Ginsberg  (2001).  Con esta metodología logra
-implementar un jugador de Bridge de nivel experto.
+Uno de los trabajos importantes en el ámbito de algoritmos  para juegos de
+información imperfecta lo realiza Ginsberg  (2001). El autor introduce el
+algoritmo de \textit{Partition Search} y aplica métodos de Montecarlo para
+lidiar con la información imperfecta. Así, logra implementar un jugador de Bridge
+de nivel experto.
 
 Por otra parte, un jugador artificial en un contexto de incertidumbre puede
 estudiarse desde la perspectiva de procesos de decisión de Márkov como en la
@@ -106,13 +104,25 @@ de Mnih et al. (2013) que es uno de los primeros en integrar aprendizaje
 profundo a los algoritmos de aprendizaje por refuerzo para la creación de
 agentes en el juego de Atari.
 
-Long et al. (2010) realizaron un trabajo en donde , a partir de árboles de juego
+De forma similar, Bowling et al. (2017) describen el desarrollo de técnicas de
+aprendizaje por refuerzo aplicadas a juegos de información imperfecta. En su
+trabajo, extienden las nociones teóricas sobre solucionar un juego y muestran un
+algoritmo que resuelve una variante limitada del juego Texas Hold'em.
+
+Long et al. (2010) realizaron un trabajo en donde, a partir de árboles de juego
 sintéticos, definen indicadores estadísticos que les permiten identificar
 propiedades importantes de juegos de información imperfecta en los que el método
-de \textit{Perfect Information Monte Carlo} (PIMC)  se puede adaptar
+de \textit{Perfect Information Monte Carlo} (PIMC) se puede adaptar
 exitosamente. Dicho trabajo extiende la línea de investigación sobre las
 limitaciones de PIMC en el contexto de información imperfecta que inician Frank
-y Basin (1998)
+y Basin (1998).
+
+Enfocado en el contexto de los juegos de información imperfecta. Whitehouse
+(2014) realiza un trabajo extenso en donde sitúa la aplicabilidad de
+\textit{Monte Carlo Tree Search}, describe los algoritmos PIMC,
+\textit{Information Set Monte Carlo Tree Search} (ISMCTS) y retoma el análisis
+de las limitantes de PIMC.
+
 
 Se recuperó de la web un proyecto de licenciatura sobre un jugador artificial
 para dominó (en el texto se le refiere como \textit{Latin-American dominoes})
@@ -121,11 +131,22 @@ consiste en simulaciones para contrastar distintas algoritmos pero no tiene la
 finalidad de ser consumido como una API.
 
 Asimismo, se encontró en Github una implementación del algoritmo \textit{Monte
-Carlo Tree Search} (MCTS) en el lenguaje \textit{Python}: mctspy (Czarnogórski,
+    Carlo Tree Search} (MCTS) en el lenguaje \textit{Python}: mctspy (Czarnogórski,
 2018a). Entre las implementaciones en este lenguaje, es la que cuenta con mayor
 número de estrellas en Github. También, forma parte de un blog divulgativo sobre
 MCTS escrito por el mismo autor que la biblioteca, Kamil Czarnogórski(2018b),
 quien se identifica por el pseudónimo Int8.
+
+Por último, fue de suma utilidad el trabajo de Browne et al. (2012), una revisión
+de la literatura sobre MCTS. A partir de este trabajo se obtuvo una visión general
+de las aplicaciones de MCTS así como de las distintas variantes que existen.
+
+Este trabajo busca implementar un jugador artificial para dominó, enfocándose en
+evaluar la integración de este sistema en un entorno de juego en línea. A
+diferencia de los trabajos antes mencionados, que buscan optimizar el
+rendimiento del jugador, nuestro objetivo es desarrollar una prueba de concepto
+para un sistema de dominó en línea.
+
 
 % La siguiente gráfica está hecha a mano porque la que arroja R se pixelea un poco al importarla a LaTeX. Pueden apoyarse en Excel para obtener las coordenadas más rápido
 
