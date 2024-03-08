@@ -2,9 +2,9 @@
 
 \noindent
 
-Ya que se ha identificado el problema, su contexto y se ha delimitado los
+Ya que se ha identificado el problema, su contexto y se han delimitado los
 requerimientos funcionales y restricciones que debe satisfacer la solución se
-pasará a definir el diseño de ésta así como las posibles alternativas.
+identifican alternativas de solución y se representa el diseño desarrollado.
 
 \section{Elección de algoritmo}
 
@@ -25,11 +25,11 @@ Carlo (PIMC), como es llamado por Whitehouse (2014), busca transformar el juego
 de información imperfecta en un conjunto de juegos de información perfecta
 congruentes con el estado actual del juego. El conjunto es una muestra aleatoria
 de los posibles escenarios en los que el jugador se puede encontrar. En cada uno
-de estos escenarios se realiza búsqueda en árbol y al final se toma la acción
-que en el mayor número de escenarios llevó a una victoria.
+de estos escenarios se realiza una búsqueda en árbol y al final se toma la
+acción que en el mayor número de escenarios llevó a una victoria.
 
 Se considera que PIMC muestra una ventaja sobre la primera alternativa por su
-simpleza y facilidad de implementación. Así mismo, permite aprovechar la
+simpleza y facilidad de implementación. Asimismo, permite aprovechar la
 experiencia previa que el desarrollador ha tenido implementando jugadores
 basados en búsqueda en árbol. Dadas las restricciones del desarrollo, se llegó a
 la conclusión que PIMC sería la mejor alternativa para los fines de este
@@ -71,10 +71,10 @@ juego, en donde puede ser deseable incorporar conocimiento experto del dominó
 para elegir una acción cuando no se cuenta con suficiente información para que
 el sistema calcule una jugada efectiva en el límite de tiempo establecido.
 
-Si existe una jugada predefinida se omitirá la ejecución de los demás módulos y
-la jugada será la salida del sistema. En otro caso, a partir de la historia del
-juego se calcularán las fichas que aun no han sido tiradas y el número de fichas
-que tiene cada jugador. Este resultado se pasará al siguiente módulo.
+Si existe una jugada predefinida se omite la ejecución de los demás módulos y la
+jugada es la salida del sistema. En otro caso, a partir de la historia del juego
+se calculan las fichas que aun no han sido tiradas y el número de fichas que
+tiene cada jugador. Este resultado se pasará al siguiente módulo.
 
 En esta primera versión del sistema, sólo se implementó el caso en que existe
 una única jugada posible. Dejamos como linea de investigación para futuras
@@ -82,13 +82,13 @@ versiones el incluir conocimiento experto para elegir la primer jugada.
 
 \section{Muestreo de fichas desconocidas}
 
-Siguiendo el algoritmo de PIMC, es necesario generar un conjunto de posibles
-escenarios en los que se puede encontrar el jugador. En este caso, los
-escenarios se distinguen por las fichas que poseen los otros jugadores. Ya que
-se conoce el conjunto de fichas que aun no se han jugado, se puede simular el
-proceso de repartir las fichas aleatoriamente a los otros jugadores y así
-generar los escenarios. Un escenario se conforma de un arreglo en donde se
-guardan las fichas que se le repartieron aleatoriamente a cada jugador.
+Siguiendo el algoritmo de PIMC, es necesario generar un conjunto de escenarios
+posibles en los que se puede encontrar el jugador. En este caso, los escenarios
+se distinguen por las fichas que poseen los otros jugadores. Ya que se conoce el
+conjunto de fichas que aun no se han jugado, se puede simular el proceso de
+repartir las fichas aleatoriamente a los otros jugadores y así generar los
+escenarios. Un escenario se conforma de un arreglo en donde se guardan las
+fichas que se le repartieron aleatoriamente a cada jugador.
 
 El número de simulaciones que se realizan es un parámetro del sistema que
 impacta su comportamiento en dos formas. Entre más simulaciones se realizan,
@@ -107,7 +107,7 @@ mayor número de escenarios fue óptima.
 
 Para hacer el cálculo de la jugada óptima hay distintas alternativas.
 \textit{Negamax}, \textit{Alpha-Beta Prunning} y \textit{Monte Carlo Tree
-Search} (MCTS) son los principales candidatos para realizar búsqueda en árbol de
+   Search} (MCTS) son los principales candidatos para realizar búsqueda en árbol de
 juego con información perfecta.
 
 Se eligió el algoritmo MCTS debido a dos características que no comparte con las
