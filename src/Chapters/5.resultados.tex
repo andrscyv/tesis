@@ -2,13 +2,13 @@
 
 \noindent
 En esta sección se muestran los resultados obtenidos después de la
-implementación. Se realizaron un conjunto de pruebas para validar que el sistema
-tuviera un funcionamiento correcto. Se validó que el último módulo, la búsqueda
-en árbol de información perfecta, calculara jugadas con buen desempeño. En
-segundo lugar, se realizaron dos búsquedas en cuadrícula en el espacio de
-parámetros de PIMC. Así, fue posible identificar cómo varía el desempeño en
-función de los parámetros y elegir una combinación óptima de ellos.
-Posteriormente, se muestra el desempeño del sistema con los parámetros
+implementación. Se realizó un conjunto de experimentos para validar el
+funcionamiento del sistema. Se validó que el último módulo, la búsqueda en árbol
+de información perfecta, calculara jugadas con buen desempeño. En segundo lugar,
+se realizaron dos búsquedas en cuadrícula en el espacio de parámetros de PIMC
+descrito en la sección \ref{sec:grid_search}. Así, fue posible identificar cómo
+varía el desempeño en función de los parámetros y elegir una combinación óptima
+de ellos. Posteriormente, se muestra el desempeño del sistema con los parámetros
 seleccionados y se caracteriza con base en estadísticas de múltiples juegos
 simulados. Por último, se realiza una estimación de la capacidad que un servicio
 web basada en el sistema podría tener.
@@ -48,19 +48,20 @@ el eje horizontal se muestra el presupuesto de tiempo que se le permitió
 ejecutar a MCTS para cada tiro. Se corrieron múltiples simulaciones con
 distintas configuraciones de MCTS de cien juegos cada una. Podemos observar que
 muy rápidamente se llega a superar al equipo greedy. Con un presupuesto de una
-milésima de segundo, la búsqueda en árbol logró vencer al jugador greedy en 80\%
-de los juegos.
+milésima de segundo, la búsqueda en árbol logró vencer al jugador greedy en más
+de 80\% de los juegos.
 
 El desempeño observado nos indica que MCTS está calculando buenas jugadas y que
 el módulo funciona correctamente.
 
 
 \section{Búsqueda en cuadrícula}
+\label{sec:grid_search}
 
 Una vez que se ganó certeza sobre el correcto funcionamiento de la búsqueda en
 árbol, la siguiente interrogante a resolver fue la elección de parámetros. El
-algoritmo PIMC consta de dos parámetros a definir: el número de escenarios que
-se generarán (n) y el presupuesto de tiempo (t) para buscar una acción óptima en
+algoritmo PIMC tiene dos parámetros: el número de escenarios que se generarán
+(n) y el presupuesto de tiempo disponible (t) para buscar una acción óptima en
 cada escenario usando MCTS.
 
 Como punto de partida, se agregó como restricción que el tiempo total de
@@ -80,8 +81,8 @@ las fichas de los demás participantes.
 
 \begin{figure}[H]
     \begin{center}
-        \hbox{\hspace{-2em}
-            \includegraphics[scale=0.65]{graficas_experimentos/grid_search_vs_greedy.png}}
+        \hbox{\hspace{-6.4em}
+            \includegraphics[scale=0.3]{grid_search_vs_greedy_2_ranges.jpg}}
         \caption{Búsqueda en cuadrícula equipo PIMC vs equipo débil. Se muestran
             concatenados dos rangos. El rango 1-500 tiene saltos de 25 unidades. El
             rango 500 - 10,000 tiene saltos en 500 unidades. Para cada n, se eligió
@@ -114,15 +115,15 @@ tendencia en los datos. El mejor desempeño se logró cuando PIMC sólo tomó en
 cuenta un escenario. Esta configuración de parámetros es un caso degenerado en
 donde PIMC se convierte en MCTS aplicado a un escenario aleatorio de repartición
 de fichas, por lo que se podría pensar que no es la elección más deseada de
-parámetros. Aun así, parece apreciarse que en el rango \( n \in  [1, 400] \) el
+parámetros. Aun así, se aprecia que en el rango \( n \in  [1, 400] \) el
 desempeño del jugador es mejor que en el resto de las configuraciones.
 
 \section{Desempeño del sistema}
 
 El análisis anterior fue útil para elegir una combinación de parámetros . Se
-eligieron los valores \(n^* = 75 \) y \( t^* = \frac{1}{75}\), los cuales
-maximizaron el porcentaje de victorias en la figura \ref{GSW} y se encontraban
-en la región de mejor desempeño de la figura \ref{GSS}.
+eligieron los valores \(n^* = 75 \) escenarios y \( t^* = \frac{1}{75}\) [s],
+los cuales maximizaron el porcentaje de victorias en la figura \ref{GSW} y se
+encontraban en la región de mejor desempeño de la figura \ref{GSS}.
 
 \begin{table}[!ht]
     \centering

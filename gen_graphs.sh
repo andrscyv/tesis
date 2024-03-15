@@ -43,6 +43,34 @@ graph ${source_path}/grid_search_vs_greedy.csv \
 --xtick-angle 90 \
 -o ${target_path}/grid_search_vs_greedy.png
 
+graph ${source_path}/grid_search_vs_greedy_25units.csv \
+--title 'Búsqueda en cuadricula equipo PIMC vs equipo Jugadores Débil' \
+--xlabel 'Número de escenarios (n)' \
+--ylabel 'Porcentaje de victorias PIMC' \
+--xcol 'pimc_num_simulations' \
+--ycol 'percent_wins_algo' \
+--yscale 10 \
+--yrange 0:100 \
+--bar \
+--legend 'Porcentaje de victorias' \
+--fontsize 9 \
+--xtick-angle 90 \
+-o ${target_path}/grid_search_vs_greedy_25units.png
+
+graph ${source_path}/grid_search_vs_greedy_500units.csv \
+--title 'Búsqueda en cuadricula equipo PIMC vs equipo Jugadores Débil' \
+--xlabel 'Número de escenarios (n)' \
+--ylabel 'Porcentaje de victorias PIMC' \
+--xcol 'pimc_num_simulations' \
+--ycol 'percent_wins_algo' \
+--yscale 10 \
+--yrange 0:100 \
+--bar \
+--legend 'Porcentaje de victorias' \
+--fontsize 9 \
+--xtick-angle 90 \
+-o ${target_path}/grid_search_vs_greedy_500units.png
+
 graph ${source_path}/grid_search_vs_strong.csv \
 --title 'Búsqueda en cuadricula equipo PIMC vs equipo Jugadores Fuertes' \
 --xlabel 'Número de escenarios (n)' \
